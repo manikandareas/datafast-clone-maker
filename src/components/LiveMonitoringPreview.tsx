@@ -6,28 +6,24 @@ import { Users, Clock, TrendingUp, CheckCircle, Download, Share2, Copy, Search, 
 import { Progress } from "@/components/ui/progress";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { Safari } from "@/components/ui/safari";
-
-const StatCard = ({ 
-  label, 
-  value, 
+const StatCard = ({
+  label,
+  value,
   icon,
-  showDot = false 
-}: { 
-  label: string; 
-  value: string; 
+  showDot = false
+}: {
+  label: string;
+  value: string;
   icon: React.ReactNode;
   showDot?: boolean;
-}) => (
-  <div className="space-y-1">
+}) => <div className="space-y-1">
     <div className="text-xs text-muted-foreground">{label}</div>
     <div className="flex items-center gap-2">
       {showDot && <div className="h-2 w-2 rounded-full bg-green-500" />}
       {icon}
       <div className="text-2xl font-bold text-foreground">{value}</div>
     </div>
-  </div>
-);
-
+  </div>;
 const ParticipantCard = ({
   name,
   attempt,
@@ -45,8 +41,7 @@ const ParticipantCard = ({
   active: string;
   status: 'Completed' | 'In Progress';
 }) => {
-  return (
-    <Card className="p-4 bg-card/50">
+  return <Card className="p-4 bg-card/50">
       <div className="flex items-start gap-3 mb-3">
         <Avatar className="h-10 w-10">
           <AvatarFallback className="bg-primary/10 text-primary font-semibold">
@@ -86,33 +81,16 @@ const ParticipantCard = ({
           </div>
         </div>
       </div>
-    </Card>
-  );
+    </Card>;
 };
-
 export const LiveMonitoringPreview = () => {
-  return (
-    <section className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-muted/20 to-background">
+  return <section className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-4">
-            Lihat Bagaimana Ngerti.in Bekerja
-          </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
-            Monitoring aktivitas siswa secara real-time. Lihat siapa yang sedang mengerjakan, 
-            siapa yang kesulitan, dan bagaimana performa keseluruhan—semuanya dalam satu dashboard.
-          </p>
-        </div>
+        
 
         {/* Safari Browser Frame */}
         <div className="relative max-w-6xl mx-auto">
-          <Safari 
-            url="https://ngerti.in/join/MHF6RF"
-            width={1203}
-            height={753}
-            mode="default"
-            className="w-full h-auto"
-          >
+          <Safari url="https://ngerti.in/join/MHF6RF" width={1203} height={753} mode="default" className="w-full h-auto">
             {/* Dashboard Content */}
             <div className="w-full h-full bg-[#1a1a1a] text-white p-4 md:p-6 overflow-auto">
               {/* Header */}
@@ -135,27 +113,10 @@ export const LiveMonitoringPreview = () => {
 
               {/* Stats */}
               <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 pb-6 border-b border-border/20">
-                <StatCard 
-                  label="Participants" 
-                  value="2"
-                  icon={<Users className="h-4 w-4 text-muted-foreground" />}
-                />
-                <StatCard 
-                  label="Active now" 
-                  value="0"
-                  icon={<Clock className="h-4 w-4 text-green-500" />}
-                  showDot={true}
-                />
-                <StatCard 
-                  label="Average Score" 
-                  value="5.0"
-                  icon={<TrendingUp className="h-4 w-4 text-muted-foreground" />}
-                />
-                <StatCard 
-                  label="Completion Rate" 
-                  value="100%"
-                  icon={<CheckCircle className="h-4 w-4 text-muted-foreground" />}
-                />
+                <StatCard label="Participants" value="2" icon={<Users className="h-4 w-4 text-muted-foreground" />} />
+                <StatCard label="Active now" value="0" icon={<Clock className="h-4 w-4 text-green-500" />} showDot={true} />
+                <StatCard label="Average Score" value="5.0" icon={<TrendingUp className="h-4 w-4 text-muted-foreground" />} />
+                <StatCard label="Completion Rate" value="100%" icon={<CheckCircle className="h-4 w-4 text-muted-foreground" />} />
               </div>
 
               {/* Main Content Grid */}
@@ -171,23 +132,33 @@ export const LiveMonitoringPreview = () => {
                     {/* Simple Bar Chart */}
                     <div className="relative h-48 flex items-end gap-8 px-4">
                       <div className="flex-1 flex flex-col items-center gap-2">
-                        <div className="w-full bg-blue-500 rounded-t" style={{ height: '180px' }} />
+                        <div className="w-full bg-blue-500 rounded-t" style={{
+                        height: '180px'
+                      }} />
                         <span className="text-xs text-muted-foreground">0-20</span>
                       </div>
                       <div className="flex-1 flex flex-col items-center gap-2">
-                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{
+                        height: '0px'
+                      }} />
                         <span className="text-xs text-muted-foreground">21-40</span>
                       </div>
                       <div className="flex-1 flex flex-col items-center gap-2">
-                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{
+                        height: '0px'
+                      }} />
                         <span className="text-xs text-muted-foreground">41-60</span>
                       </div>
                       <div className="flex-1 flex flex-col items-center gap-2">
-                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{
+                        height: '0px'
+                      }} />
                         <span className="text-xs text-muted-foreground">61-80</span>
                       </div>
                       <div className="flex-1 flex flex-col items-center gap-2">
-                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{
+                        height: '0px'
+                      }} />
                         <span className="text-xs text-muted-foreground">81-100</span>
                       </div>
                     </div>
@@ -238,12 +209,7 @@ export const LiveMonitoringPreview = () => {
                     
                     {/* Link */}
                     <div className="flex items-center gap-2 bg-background/50 rounded px-3 py-2">
-                      <input 
-                        type="text" 
-                        value="https://ngerti.in/join/MHF6RF"
-                        readOnly
-                        className="flex-1 bg-transparent text-xs outline-none"
-                      />
+                      <input type="text" value="https://ngerti.in/join/MHF6RF" readOnly className="flex-1 bg-transparent text-xs outline-none" />
                       <Button size="sm" variant="ghost" className="h-6 w-6 p-0">
                         <Copy className="h-3 w-3" />
                       </Button>
@@ -269,10 +235,7 @@ export const LiveMonitoringPreview = () => {
                 <div className="flex gap-2 mb-4">
                   <div className="flex-1 relative">
                     <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                    <Input 
-                      placeholder="Cari peserta..."
-                      className="pl-9 bg-background/50"
-                    />
+                    <Input placeholder="Cari peserta..." className="pl-9 bg-background/50" />
                   </div>
                   <Button variant="outline" size="sm" className="text-xs">
                     Urutan: Skor
@@ -286,30 +249,13 @@ export const LiveMonitoringPreview = () => {
                 
                 {/* Participant Cards */}
                 <div className="grid md:grid-cols-2 gap-4">
-                  <ParticipantCard
-                    name="Vito Andareas Manik"
-                    attempt="Percobaan ke-1"
-                    questions="20/20"
-                    score="10"
-                    correct="2/20"
-                    active="1d ago"
-                    status="Completed"
-                  />
-                  <ParticipantCard
-                    name="Vito Andareas Manik"
-                    attempt="Percobaan ke-2"
-                    questions="4/20"
-                    score="0"
-                    correct="0/4"
-                    active="1d ago"
-                    status="Completed"
-                  />
+                  <ParticipantCard name="Vito Andareas Manik" attempt="Percobaan ke-1" questions="20/20" score="10" correct="2/20" active="1d ago" status="Completed" />
+                  <ParticipantCard name="Vito Andareas Manik" attempt="Percobaan ke-2" questions="4/20" score="0" correct="0/4" active="1d ago" status="Completed" />
                 </div>
               </div>
             </div>
           </Safari>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
