@@ -147,8 +147,8 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "marquee-left": "marquee-left 40s linear infinite",
-        "marquee-right": "marquee-right 40s linear infinite",
+        "marquee-left": "marquee-left 20s linear infinite",
+        "marquee-right": "marquee-right 20s linear infinite",
         float: "float 6s ease-in-out infinite",
         "slide-in-left": "slide-in-left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
         "slide-in-right": "slide-in-right 0.8s cubic-bezier(0.34, 1.56, 0.64, 1)",
