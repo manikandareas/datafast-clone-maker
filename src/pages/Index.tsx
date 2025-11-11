@@ -1,6 +1,6 @@
 import { Header } from "@/components/Header";
 import { Hero } from "@/components/Hero";
-import { DashboardPreview } from "@/components/DashboardPreview";
+import { LiveMonitoringPreview } from "@/components/LiveMonitoringPreview";
 import { HowItWorks } from "@/components/HowItWorks";
 import { Testimonials } from "@/components/Testimonials";
 import { Features } from "@/components/Features";
@@ -17,7 +17,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
-      <DashboardPreview />
+      <LiveMonitoringPreview />
       <Testimonials />
       <HowItWorks />
       <Features />
