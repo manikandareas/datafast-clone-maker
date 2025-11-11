@@ -6,28 +6,9 @@ export const FounderStory = () => {
   return (
     <section className="py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid lg:grid-cols-[400px,1fr] gap-12 items-start mb-16">
-          {/* Left side - Founder Card */}
-          <div className="mx-auto">
-            <Card className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/20 dark:to-orange-950/20 border-amber-200 dark:border-amber-800 p-8 text-center relative overflow-hidden">
-              <div className="absolute top-4 left-4 text-6xl opacity-20">🏆</div>
-              <div className="absolute top-4 right-4 text-6xl opacity-20">🏆</div>
-              
-              <div className="relative mb-4">
-                <div className="absolute -left-8 top-1/2 -translate-y-1/2 text-5xl">🏆</div>
-                <div className="absolute -right-8 top-1/2 -translate-y-1/2 text-5xl">🏆</div>
-                <div className="w-32 h-32 mx-auto rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-7xl border-4 border-amber-200 dark:border-amber-800">
-                  👨‍💻
-                </div>
-              </div>
-              
-              <div className="text-5xl font-bold text-amber-600 dark:text-amber-400 mb-2">2023</div>
-              <div className="text-lg font-semibold text-amber-700 dark:text-amber-300">Maker of the Year</div>
-            </Card>
-          </div>
-
-          {/* Right side - Story Text */}
-          <div className="space-y-6">
+        <div className="mb-16">
+          {/* Story Text */}
+          <div className="space-y-6 max-w-4xl mx-auto">
             <div className="flex items-center gap-2 text-foreground/80">
               <span className="text-lg">👋</span>
               <span className="text-lg">
