@@ -23,9 +23,7 @@ export const Hero = () => {
           <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-semibold w-full sm:w-auto">
             Mulai Gratis Sekarang 🚀
           </Button>
-          <Button size="lg" variant="outline" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg w-full sm:w-auto">
-            Lihat Demo Langsung
-          </Button>
+          
         </div>
 
         <p className="text-xs md:text-sm text-muted-foreground mb-6 md:mb-8">
