@@ -1,11 +1,12 @@
 export const SubjectShapes = () => {
-  // Static positions for all shapes in Hero section
+  // Static positions for all shapes - positioned in empty areas away from main content
   const shapes = [
-    { index: 0, x: 8, y: 15, rotation: 15, scale: 0.7, opacity: 0.8 },      // Math - top left
-    { index: 1, x: 88, y: 10, rotation: -20, scale: 0.8, opacity: 0.7 },    // Physics - top right  
-    { index: 2, x: 5, y: 75, rotation: 25, scale: 0.6, opacity: 0.6 },      // Biology - bottom left
-    { index: 3, x: 90, y: 70, rotation: -15, scale: 0.75, opacity: 0.75 },  // Language - bottom right
-    { index: 4, x: 85, y: 45, rotation: 10, scale: 0.65, opacity: 0.65 },   // Chemistry - middle right
+    { index: 0, x: 2, y: 8, rotation: 15, scale: 0.5, opacity: 0.7 },        // Math - far top left corner
+    { index: 1, x: 95, y: 12, rotation: -20, scale: 0.6, opacity: 0.65 },    // Physics - far top right corner
+    { index: 2, x: 1, y: 88, rotation: 25, scale: 0.55, opacity: 0.6 },      // Biology - far bottom left corner
+    { index: 3, x: 96, y: 85, rotation: -15, scale: 0.65, opacity: 0.7 },    // Language - far bottom right corner
+    { index: 4, x: 98, y: 48, rotation: 10, scale: 0.5, opacity: 0.6 },      // Chemistry - far middle right edge
+    { index: 0, x: 3, y: 50, rotation: -25, scale: 0.45, opacity: 0.55 },    // Extra Math - far middle left edge
   ];
 
   return (
