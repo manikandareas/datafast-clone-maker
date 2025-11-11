@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be OKLCH.
@@ -150,7 +148,7 @@ All colors MUST be OKLCH.
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: var(--font-sans);
+  --font-sans: 'DM Sans', var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
 
@@ -167,6 +165,88 @@ All colors MUST be OKLCH.
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+
+  /* Custom Animations */
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+
+  @keyframes marquee-left {
+    0% { transform: translateX(0%); }
+    100% { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-right {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0%); }
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+  }
+
+  @keyframes slide-in-left {
+    0% { transform: translateX(-100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-in-right {
+    0% { transform: translateX(100px); opacity: 0; }
+    100% { transform: translateX(0); opacity: 1; }
+  }
+
+  @keyframes slide-in-top {
+    0% { transform: translateY(-100px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+
+  @keyframes slide-in-bottom-left {
+    0% { transform: translate(-80px, 80px); opacity: 0; }
+    100% { transform: translate(0, 0); opacity: 1; }
+  }
+
+  @keyframes slide-in-bottom-right {
+    0% { transform: translate(80px, 80px); opacity: 0; }
+    100% { transform: translate(0, 0); opacity: 1; }
+  }
+
+  @keyframes scale-fade-in {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes rotate-fade-in {
+    0% { transform: rotate(-180deg) scale(0); opacity: 0; }
+    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+  }
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+  --animate-marquee-left: marquee-left 20s linear infinite;
+  --animate-marquee-right: marquee-right 20s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-slide-in-left: slide-in-left 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-slide-in-right: slide-in-right 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-slide-in-top: slide-in-top 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-slide-in-bottom-left: slide-in-bottom-left 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-slide-in-bottom-right: slide-in-bottom-right 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-scale-fade-in: scale-fade-in 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-rotate-fade-in: rotate-fade-in 0.9s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 @layer base {
