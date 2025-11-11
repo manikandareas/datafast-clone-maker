@@ -1,4 +1,6 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@custom-variant dark (&:is(.dark *));
 
 /* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be OKLCH.
@@ -38,7 +40,8 @@ All colors MUST be OKLCH.
     --sidebar-accent-foreground: oklch(1 0 0);
     --sidebar-border: oklch(0.9109 0.007 247.9014);
     --sidebar-ring: oklch(0.6048 0.2166 257.2136);
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans:
+      ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --radius: 0.5rem;
@@ -93,7 +96,8 @@ All colors MUST be OKLCH.
     --sidebar-accent-foreground: oklch(0.2178 0 0);
     --sidebar-border: oklch(0.4276 0.0147 248.1715);
     --sidebar-ring: oklch(0.7287 0.1398 258.0679);
-    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    --font-sans:
+      ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --radius: 0.5rem;
@@ -148,7 +152,7 @@ All colors MUST be OKLCH.
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  --font-sans: 'DM Sans', var(--font-sans);
+  --font-sans: "DM Sans", var(--font-sans);
   --font-mono: var(--font-mono);
   --font-serif: var(--font-serif);
 
@@ -186,53 +190,108 @@ All colors MUST be OKLCH.
   }
 
   @keyframes marquee-left {
-    0% { transform: translateX(0%); }
-    100% { transform: translateX(-50%); }
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
   }
 
   @keyframes marquee-right {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0%); }
+    0% {
+      transform: translateX(-50%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
   }
 
   @keyframes float {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-20px); }
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
   }
 
   @keyframes slide-in-left {
-    0% { transform: translateX(-100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% {
+      transform: translateX(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 
   @keyframes slide-in-right {
-    0% { transform: translateX(100px); opacity: 0; }
-    100% { transform: translateX(0); opacity: 1; }
+    0% {
+      transform: translateX(100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateX(0);
+      opacity: 1;
+    }
   }
 
   @keyframes slide-in-top {
-    0% { transform: translateY(-100px); opacity: 0; }
-    100% { transform: translateY(0); opacity: 1; }
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
   }
 
   @keyframes slide-in-bottom-left {
-    0% { transform: translate(-80px, 80px); opacity: 0; }
-    100% { transform: translate(0, 0); opacity: 1; }
+    0% {
+      transform: translate(-80px, 80px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
   }
 
   @keyframes slide-in-bottom-right {
-    0% { transform: translate(80px, 80px); opacity: 0; }
-    100% { transform: translate(0, 0); opacity: 1; }
+    0% {
+      transform: translate(80px, 80px);
+      opacity: 0;
+    }
+    100% {
+      transform: translate(0, 0);
+      opacity: 1;
+    }
   }
 
   @keyframes scale-fade-in {
-    0% { transform: scale(0); opacity: 0; }
-    100% { transform: scale(1); opacity: 1; }
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
   }
 
   @keyframes rotate-fade-in {
-    0% { transform: rotate(-180deg) scale(0); opacity: 0; }
-    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+    0% {
+      transform: rotate(-180deg) scale(0);
+      opacity: 0;
+    }
+    100% {
+      transform: rotate(0deg) scale(1);
+      opacity: 1;
+    }
   }
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
@@ -256,7 +315,7 @@ All colors MUST be OKLCH.
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'DM Sans', sans-serif;
+    font-family: "DM Sans", sans-serif;
     font-optical-sizing: auto;
     font-size: 12px; /* 9pt */
   }
