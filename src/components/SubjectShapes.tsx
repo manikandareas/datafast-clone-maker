@@ -23,47 +23,30 @@ export const SubjectShapes = () => {
     return 4; // Chemistry
   };
 
-  // Calculate position based on scroll progress
-  const getPosition = () => {
-    const viewportWidth = window.innerWidth;
-    const viewportHeight = window.innerHeight;
-    
-    // Define waypoints: each waypoint has x%, y%, scale, rotation
-    const waypoints = [
-      { x: 10, y: 15, scale: 1, rotation: 0 },      // Top left - Hero
-      { x: 80, y: 20, scale: 1.2, rotation: 90 },   // Top right
-      { x: 75, y: 50, scale: 1.1, rotation: 180 },  // Middle right
-      { x: 15, y: 70, scale: 1.3, rotation: 270 },  // Bottom left
-      { x: 70, y: 75, scale: 1, rotation: 360 },    // Bottom right
-      { x: 50, y: 85, scale: 0.9, rotation: 450 },  // Center bottom - End
-    ];
-
-    const segmentIndex = Math.min(
-      Math.floor(scrollProgress * waypoints.length), 
-      waypoints.length - 2
-    );
-    const segmentProgress = (scrollProgress * waypoints.length) % 1;
-
-    const start = waypoints[segmentIndex];
-    const end = waypoints[segmentIndex + 1];
-
-    // Smooth easing function
-    const ease = (t: number) => t < 0.5 
-      ? 2 * t * t 
-      : -1 + (4 - 2 * t) * t;
-
-    const easedProgress = ease(segmentProgress);
-
-    return {
-      x: start.x + (end.x - start.x) * easedProgress,
-      y: start.y + (end.y - start.y) * easedProgress,
-      scale: start.scale + (end.scale - start.scale) * easedProgress,
-      rotation: start.rotation + (end.rotation - start.rotation) * easedProgress,
-    };
+  // Calculate discrete position based on scroll thresholds
+  const getPositionIndex = () => {
+    if (scrollProgress < 0.15) return 0;
+    if (scrollProgress < 0.3) return 1;
+    if (scrollProgress < 0.45) return 2;
+    if (scrollProgress < 0.6) return 3;
+    if (scrollProgress < 0.75) return 4;
+    return 5;
   };
 
-  const position = getPosition();
+  const positionIndex = getPositionIndex();
   const shapeIndex = getShapeIndex();
+
+  // Define discrete positions in empty areas
+  const positions = [
+    { x: 5, y: 10, scale: 1, rotation: 0 },        // Top left corner - Hero
+    { x: 85, y: 15, scale: 1.1, rotation: 72 },    // Top right corner
+    { x: 90, y: 45, scale: 1, rotation: 144 },     // Middle right edge
+    { x: 8, y: 60, scale: 1.2, rotation: 216 },    // Middle left edge
+    { x: 88, y: 75, scale: 1, rotation: 288 },     // Bottom right corner
+    { x: 10, y: 88, scale: 0.9, rotation: 360 },   // Bottom left corner
+  ];
+
+  const position = positions[positionIndex];
 
   return (
     <div 
