@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { BarChart3 } from "lucide-react";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 export const Header = () => {
   return (
@@ -22,9 +23,12 @@ export const Header = () => {
           </a>
         </nav>
         
-        <Button variant="ghost" size="sm">
-          Log in
-        </Button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <Button variant="ghost" size="sm">
+            Log in
+          </Button>
+        </div>
       </div>
     </header>
   );
