@@ -6,6 +6,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { Features } from "@/components/Features";
 import { Changelog } from "@/components/Changelog";
 import { FounderStory } from "@/components/FounderStory";
+import { FeaturedTestimonial } from "@/components/FeaturedTestimonial";
 
 const Index = () => {
   return (
@@ -18,6 +19,7 @@ const Index = () => {
       <Features />
       <Changelog />
       <FounderStory />
+      <FeaturedTestimonial />
     </div>
   );
 };
