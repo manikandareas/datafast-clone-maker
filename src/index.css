@@ -113,5 +113,8 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'DM Sans', sans-serif;
+    font-optical-sizing: auto;
+    font-size: 12px; /* 9pt */
   }
 }
