@@ -1,97 +1,90 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, FileText, Wand2, Share2, BarChart3 } from "lucide-react";
+import { ArrowRight, FileText, Wand2, BarChart3 } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const StepCard = ({ 
   number, 
-  icon,
+  visual,
   title, 
   description,
   showArrow = true 
 }: { 
   number: number; 
-  icon: React.ReactNode;
+  visual: React.ReactNode;
   title: string; 
   description: string;
   showArrow?: boolean;
 }) => {
   return (
-    <div className="flex items-center gap-3 md:gap-6">
-      <Card className="flex-1 bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-300">
-        <div className="aspect-square bg-gradient-to-br from-primary/10 via-accent/5 to-transparent border-b border-border/30 flex items-center justify-center p-4">
-          <div className="text-primary scale-75 sm:scale-100">
-            {icon}
-          </div>
+    <>
+      <Card className="flex-1 bg-card/30 backdrop-blur-sm border-border/30 overflow-hidden hover:border-primary/20 transition-all duration-300">
+        <div className="aspect-[4/3] bg-muted/20 border-b border-border/30 flex items-center justify-center p-6">
+          {visual}
         </div>
-        <div className="p-4 md:p-6">
-          <div className="text-xs md:text-sm text-muted-foreground font-semibold mb-2">LANGKAH {number}</div>
-          <h3 className="text-base md:text-xl font-semibold text-foreground mb-2 md:mb-3">
-            {title}
+        <div className="p-6">
+          <h3 className="text-lg font-semibold text-foreground mb-2">
+            {number}. {title}
           </h3>
-          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
+          <p className="text-sm text-muted-foreground leading-relaxed">
             {description}
           </p>
         </div>
       </Card>
       
       {showArrow && (
-        <ArrowRight className="hidden lg:block h-6 w-6 xl:h-8 xl:w-8 text-muted-foreground/40 flex-shrink-0" />
+        <ArrowRight className="hidden lg:block h-8 w-8 text-muted-foreground/30 flex-shrink-0 mx-4" />
       )}
-    </div>
+    </>
   );
 };
 
 export const HowItWorks = () => {
   return (
-    <section className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-background to-muted/30">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-8 md:mb-12 lg:mb-16">
-          <div className="inline-block mb-3 md:mb-4">
-            <span className="text-primary text-xs md:text-sm font-semibold tracking-wider uppercase">
+        <div className="text-center mb-12 md:mb-16">
+          <div className="inline-block mb-4">
+            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
               CARA KERJA
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-4">
-            Dari Materi ke Quiz Interaktif dalam 4 Langkah
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-6 px-4">
+            Dari Materi ke Quiz Interaktif dalam 3 Langkah
           </h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
-            Upload materi, AI bikin soal, siswa join pakai kode, kamu pantau real-time. 
-            Selesai dalam 5 menit, hemat waktu berjam-jam!
-          </p>
-          <div className="mt-3 md:mt-4 inline-block px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-accent/10 border border-accent/20">
-            <span className="text-xs md:text-sm text-accent">
-              ✅ Tanpa kartu kredit • 🔒 Auto-save biar aman
-            </span>
-          </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-0 mb-8 md:mb-12 lg:mb-16">
+        <div className="flex flex-col lg:flex-row items-stretch gap-6 mb-12">
           <StepCard
             number={1}
-            icon={<FileText className="h-20 w-20" />}
+            visual={
+              <div className="w-full h-full flex items-center justify-center">
+                <FileText className="h-24 w-24 text-primary/60" />
+              </div>
+            }
             title="Upload Materi"
-            description="PDF, URL, atau teks apa aja. Tinggal paste!"
+            description="Upload PDF, paste URL, atau ketik langsung. AI langsung proses dalam hitungan detik—gak perlu format khusus."
           />
 
           <StepCard
             number={2}
-            icon={<Wand2 className="h-20 w-20" />}
+            visual={
+              <div className="w-full h-full flex items-center justify-center">
+                <Wand2 className="h-24 w-24 text-primary/60" />
+              </div>
+            }
             title="AI Bikin Soal"
-            description="Dalam 2-5 menit soal sudah jadi. Tinggal cek & edit."
+            description="Dalam 2-5 menit, soal pilihan ganda dan essay siap pakai. Tinggal cek dan edit kalau perlu—atau langsung share."
           />
 
           <StepCard
             number={3}
-            icon={<Share2 className="h-20 w-20" />}
-            title="Kasih Kode ke Siswa"
-            description="Siswa join pakai kode 6 digit. Gak perlu registrasi!"
-          />
-
-          <StepCard
-            number={4}
-            icon={<BarChart3 className="h-20 w-20" />}
-            title="Pantau & Analisa"
-            description="Lihat siapa yang stuck, mana soal tersulit—semuanya real-time."
+            visual={
+              <div className="w-full h-full flex items-center justify-center">
+                <BarChart3 className="h-24 w-24 text-primary/60" />
+              </div>
+            }
+            title="Pantau Real-time"
+            description="Siswa join pakai kode 6 digit. Kamu pantau siapa yang stuck, lihat statistik detail, dan analisa hasilnya—semua real-time."
             showArrow={false}
           />
         </div>
