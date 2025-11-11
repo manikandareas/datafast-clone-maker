@@ -1,34 +1,35 @@
 import { Button } from "@/components/ui/button";
 import { Play } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 export const Changelog = () => {
   return (
-    <section className="py-16 px-4 bg-secondary/50">
-      <div className="container mx-auto max-w-3xl text-center">
-        <div className="mb-3">
-          <span className="text-primary text-sm font-semibold">
-            Oct 6, 2025 • Last release
-          </span>
-        </div>
+    <section className="py-12 px-4 bg-muted/30">
+      <div className="container mx-auto max-w-2xl text-center space-y-4">
+        <Badge variant="outline" className="border-orange-500/50 text-orange-500 text-xs">
+          Oct 8, 2025 • Last release
+        </Badge>
         
-        <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Color schemes & cross-domain tracking 🔍
+        <h2 className="text-2xl md:text-3xl font-bold text-foreground">
+          Color schemes & cross-domain tracking 🎨
         </h2>
         
-        <p className="text-muted-foreground text-lg mb-6 max-w-2xl mx-auto">
+        <p className="text-muted-foreground text-sm leading-relaxed max-w-lg mx-auto">
           Change your dashboard colors, track visitors across domains,
           and 2 security features.
         </p>
         
-        <Button variant="secondary" size="lg" className="mb-4 gap-2">
-          <Play className="h-4 w-4 fill-current" />
-          Watch Video
-        </Button>
+        <div className="pt-2">
+          <Button variant="outline" size="sm" className="gap-2 h-9">
+            <Play className="h-3 w-3 fill-current" />
+            Watch Video
+          </Button>
+        </div>
         
-        <div>
+        <div className="pt-2">
           <a 
             href="#" 
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors underline-offset-4 hover:underline"
+            className="text-xs text-muted-foreground hover:text-foreground transition-colors"
           >
             All changelogs
           </a>
