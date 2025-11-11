@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Users, Clock, TrendingUp, CheckCircle, Download, Share2, Copy, Search, ChevronDown } from "lucide-react";
 import { Progress } from "@/components/ui/progress";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Safari } from "@/components/ui/safari";
 
 const StatCard = ({ 
   label, 
@@ -105,212 +106,208 @@ export const LiveMonitoringPreview = () => {
 
         {/* Safari Browser Frame */}
         <div className="relative max-w-6xl mx-auto">
-          {/* Browser Chrome */}
-          <div className="bg-[#2d2d2d] rounded-t-lg p-3 flex items-center gap-2">
-            <div className="flex gap-2">
-              <div className="w-3 h-3 rounded-full bg-[#ff5f56]" />
-              <div className="w-3 h-3 rounded-full bg-[#ffbd2e]" />
-              <div className="w-3 h-3 rounded-full bg-[#27c93f]" />
-            </div>
-            <div className="flex-1 bg-[#1a1a1a] rounded px-3 py-1 text-xs text-muted-foreground ml-2">
-              https://ngerti.in/join/MHF6RF
-            </div>
-          </div>
+          <Safari 
+            url="https://ngerti.in/join/MHF6RF"
+            width={1203}
+            height={753}
+            mode="default"
+            className="w-full h-auto"
+          >
+            {/* Dashboard Content */}
+            <div className="w-full h-full bg-[#1a1a1a] text-white p-4 md:p-6 overflow-auto">
+              {/* Header */}
+              <div className="mb-6 pb-4 border-b border-border/20">
+                <div className="flex items-start justify-between mb-2">
+                  <div>
+                    <h3 className="text-xl font-bold mb-1">UTS Diferensial Kelas B</h3>
+                    <p className="text-sm text-muted-foreground">
+                      Sesi sudah berakhir pada 11 Nov 2025 pukul 16:29
+                    </p>
+                  </div>
+                  <div className="flex gap-2">
+                    <Button variant="outline" size="sm" className="text-xs">
+                      <Copy className="h-3 w-3 mr-1" />
+                      Pengaturan
+                    </Button>
+                  </div>
+                </div>
+              </div>
 
-          {/* Dashboard Content */}
-          <Card className="rounded-t-none p-4 md:p-6 shadow-2xl border-t-0 bg-[#1a1a1a] text-white">
-            {/* Header */}
-            <div className="mb-6 pb-4 border-b border-border/20">
-              <div className="flex items-start justify-between mb-2">
+              {/* Stats */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 pb-6 border-b border-border/20">
+                <StatCard 
+                  label="Participants" 
+                  value="2"
+                  icon={<Users className="h-4 w-4 text-muted-foreground" />}
+                />
+                <StatCard 
+                  label="Active now" 
+                  value="0"
+                  icon={<Clock className="h-4 w-4 text-green-500" />}
+                  showDot={true}
+                />
+                <StatCard 
+                  label="Average Score" 
+                  value="5.0"
+                  icon={<TrendingUp className="h-4 w-4 text-muted-foreground" />}
+                />
+                <StatCard 
+                  label="Completion Rate" 
+                  value="100%"
+                  icon={<CheckCircle className="h-4 w-4 text-muted-foreground" />}
+                />
+              </div>
+
+              {/* Main Content Grid */}
+              <div className="grid lg:grid-cols-3 gap-6 mb-6">
+                {/* Distribusi Skor */}
+                <div className="lg:col-span-2">
+                  <Card className="p-4 bg-card/30">
+                    <h4 className="font-semibold mb-2">Distribusi Skor</h4>
+                    <p className="text-xs text-muted-foreground mb-4">
+                      Distribusi nilai peserta dalam sesi ini
+                    </p>
+                    
+                    {/* Simple Bar Chart */}
+                    <div className="relative h-48 flex items-end gap-8 px-4">
+                      <div className="flex-1 flex flex-col items-center gap-2">
+                        <div className="w-full bg-blue-500 rounded-t" style={{ height: '180px' }} />
+                        <span className="text-xs text-muted-foreground">0-20</span>
+                      </div>
+                      <div className="flex-1 flex flex-col items-center gap-2">
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <span className="text-xs text-muted-foreground">21-40</span>
+                      </div>
+                      <div className="flex-1 flex flex-col items-center gap-2">
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <span className="text-xs text-muted-foreground">41-60</span>
+                      </div>
+                      <div className="flex-1 flex flex-col items-center gap-2">
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <span className="text-xs text-muted-foreground">61-80</span>
+                      </div>
+                      <div className="flex-1 flex flex-col items-center gap-2">
+                        <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
+                        <span className="text-xs text-muted-foreground">81-100</span>
+                      </div>
+                    </div>
+                    
+                    {/* Y-axis labels */}
+                    <div className="absolute left-0 top-0 h-48 flex flex-col justify-between text-xs text-muted-foreground py-2">
+                      <span>2</span>
+                      <span>1.5</span>
+                      <span>1</span>
+                      <span>0.5</span>
+                      <span>0</span>
+                    </div>
+                  </Card>
+                </div>
+
+                {/* Bagikan Test */}
                 <div>
-                  <h3 className="text-xl font-bold mb-1">UTS Diferensial Kelas B</h3>
-                  <p className="text-sm text-muted-foreground">
-                    Sesi sudah berakhir pada 11 Nov 2025 pukul 16:29
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  <Button variant="outline" size="sm" className="text-xs">
-                    <Copy className="h-3 w-3 mr-1" />
-                    Pengaturan
-                  </Button>
+                  <Card className="p-4 bg-card/30">
+                    <h4 className="font-semibold mb-2">Bagikan Test</h4>
+                    <p className="text-xs text-muted-foreground mb-4">
+                      Kode akses untuk peserta
+                    </p>
+                    
+                    {/* QR Code */}
+                    <div className="bg-white p-4 rounded-lg mb-4 flex items-center justify-center">
+                      <div className="w-32 h-32 bg-black/10 rounded flex items-center justify-center">
+                        <div className="text-6xl">▦</div>
+                      </div>
+                    </div>
+                    
+                    {/* Access Code */}
+                    <div className="text-center mb-4">
+                      <div className="text-xs text-muted-foreground mb-1">Kode Akses</div>
+                      <div className="text-2xl font-bold tracking-wider">MHF6RF</div>
+                    </div>
+                    
+                    {/* Action Buttons */}
+                    <div className="flex gap-2 mb-3">
+                      <Button variant="outline" size="sm" className="flex-1 text-xs">
+                        <Download className="h-3 w-3 mr-1" />
+                        Download
+                      </Button>
+                      <Button variant="outline" size="sm" className="flex-1 text-xs">
+                        <Share2 className="h-3 w-3 mr-1" />
+                        Salin QR
+                      </Button>
+                    </div>
+                    
+                    {/* Link */}
+                    <div className="flex items-center gap-2 bg-background/50 rounded px-3 py-2">
+                      <input 
+                        type="text" 
+                        value="https://ngerti.in/join/MHF6RF"
+                        readOnly
+                        className="flex-1 bg-transparent text-xs outline-none"
+                      />
+                      <Button size="sm" variant="ghost" className="h-6 w-6 p-0">
+                        <Copy className="h-3 w-3" />
+                      </Button>
+                    </div>
+                    
+                    <Button className="w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white" size="sm">
+                      Salin Link Lengkap
+                    </Button>
+                  </Card>
                 </div>
               </div>
-            </div>
 
-            {/* Stats */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-6 pb-6 border-b border-border/20">
-              <StatCard 
-                label="Participants" 
-                value="2"
-                icon={<Users className="h-4 w-4 text-muted-foreground" />}
-              />
-              <StatCard 
-                label="Active now" 
-                value="0"
-                icon={<Clock className="h-4 w-4 text-green-500" />}
-                showDot={true}
-              />
-              <StatCard 
-                label="Average Score" 
-                value="5.0"
-                icon={<TrendingUp className="h-4 w-4 text-muted-foreground" />}
-              />
-              <StatCard 
-                label="Completion Rate" 
-                value="100%"
-                icon={<CheckCircle className="h-4 w-4 text-muted-foreground" />}
-              />
-            </div>
-
-            {/* Main Content Grid */}
-            <div className="grid lg:grid-cols-3 gap-6 mb-6">
-              {/* Distribusi Skor */}
-              <div className="lg:col-span-2">
-                <Card className="p-4 bg-card/30">
-                  <h4 className="font-semibold mb-2">Distribusi Skor</h4>
-                  <p className="text-xs text-muted-foreground mb-4">
-                    Distribusi nilai peserta dalam sesi ini
-                  </p>
-                  
-                  {/* Simple Bar Chart */}
-                  <div className="relative h-48 flex items-end gap-8 px-4">
-                    <div className="flex-1 flex flex-col items-center gap-2">
-                      <div className="w-full bg-blue-500 rounded-t" style={{ height: '180px' }} />
-                      <span className="text-xs text-muted-foreground">0-20</span>
-                    </div>
-                    <div className="flex-1 flex flex-col items-center gap-2">
-                      <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
-                      <span className="text-xs text-muted-foreground">21-40</span>
-                    </div>
-                    <div className="flex-1 flex flex-col items-center gap-2">
-                      <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
-                      <span className="text-xs text-muted-foreground">41-60</span>
-                    </div>
-                    <div className="flex-1 flex flex-col items-center gap-2">
-                      <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
-                      <span className="text-xs text-muted-foreground">61-80</span>
-                    </div>
-                    <div className="flex-1 flex flex-col items-center gap-2">
-                      <div className="w-full bg-blue-500/20 rounded-t" style={{ height: '0px' }} />
-                      <span className="text-xs text-muted-foreground">81-100</span>
-                    </div>
-                  </div>
-                  
-                  {/* Y-axis labels */}
-                  <div className="absolute left-0 top-0 h-48 flex flex-col justify-between text-xs text-muted-foreground py-2">
-                    <span>2</span>
-                    <span>1.5</span>
-                    <span>1</span>
-                    <span>0.5</span>
-                    <span>0</span>
-                  </div>
-                </Card>
-              </div>
-
-              {/* Bagikan Test */}
+              {/* Monitoring Langsung */}
               <div>
-                <Card className="p-4 bg-card/30">
-                  <h4 className="font-semibold mb-2">Bagikan Test</h4>
-                  <p className="text-xs text-muted-foreground mb-4">
-                    Kode akses untuk peserta
-                  </p>
-                  
-                  {/* QR Code */}
-                  <div className="bg-white p-4 rounded-lg mb-4 flex items-center justify-center">
-                    <div className="w-32 h-32 bg-black/10 rounded flex items-center justify-center">
-                      <div className="text-6xl">▦</div>
-                    </div>
-                  </div>
-                  
-                  {/* Access Code */}
-                  <div className="text-center mb-4">
-                    <div className="text-xs text-muted-foreground mb-1">Kode Akses</div>
-                    <div className="text-2xl font-bold tracking-wider">MHF6RF</div>
-                  </div>
-                  
-                  {/* Action Buttons */}
-                  <div className="flex gap-2 mb-3">
-                    <Button variant="outline" size="sm" className="flex-1 text-xs">
-                      <Download className="h-3 w-3 mr-1" />
-                      Download
-                    </Button>
-                    <Button variant="outline" size="sm" className="flex-1 text-xs">
-                      <Share2 className="h-3 w-3 mr-1" />
-                      Salin QR
-                    </Button>
-                  </div>
-                  
-                  {/* Link */}
-                  <div className="flex items-center gap-2 bg-background/50 rounded px-3 py-2">
-                    <input 
-                      type="text" 
-                      value="https://ngerti.in/join/MHF6RF"
-                      readOnly
-                      className="flex-1 bg-transparent text-xs outline-none"
+                <div className="flex items-center justify-between mb-4">
+                  <h4 className="font-semibold">Monitoring Langsung</h4>
+                </div>
+                <p className="text-xs text-muted-foreground mb-4">
+                  Pantau progress peserta secara real-time
+                </p>
+                
+                {/* Search and Filters */}
+                <div className="flex gap-2 mb-4">
+                  <div className="flex-1 relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Input 
+                      placeholder="Cari peserta..."
+                      className="pl-9 bg-background/50"
                     />
-                    <Button size="sm" variant="ghost" className="h-6 w-6 p-0">
-                      <Copy className="h-3 w-3" />
-                    </Button>
                   </div>
-                  
-                  <Button className="w-full mt-3 bg-blue-500 hover:bg-blue-600 text-white" size="sm">
-                    Salin Link Lengkap
+                  <Button variant="outline" size="sm" className="text-xs">
+                    Urutan: Skor
+                    <ChevronDown className="h-3 w-3 ml-1" />
                   </Button>
-                </Card>
-              </div>
-            </div>
-
-            {/* Monitoring Langsung */}
-            <div>
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="font-semibold">Monitoring Langsung</h4>
-              </div>
-              <p className="text-xs text-muted-foreground mb-4">
-                Pantau progress peserta secara real-time
-              </p>
-              
-              {/* Search and Filters */}
-              <div className="flex gap-2 mb-4">
-                <div className="flex-1 relative">
-                  <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                  <Input 
-                    placeholder="Cari peserta..."
-                    className="pl-9 bg-background/50"
+                  <Button variant="outline" size="sm" className="text-xs">
+                    Semua Status
+                    <ChevronDown className="h-3 w-3 ml-1" />
+                  </Button>
+                </div>
+                
+                {/* Participant Cards */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <ParticipantCard
+                    name="Vito Andareas Manik"
+                    attempt="Percobaan ke-1"
+                    questions="20/20"
+                    score="10"
+                    correct="2/20"
+                    active="1d ago"
+                    status="Completed"
+                  />
+                  <ParticipantCard
+                    name="Vito Andareas Manik"
+                    attempt="Percobaan ke-2"
+                    questions="4/20"
+                    score="0"
+                    correct="0/4"
+                    active="1d ago"
+                    status="Completed"
                   />
                 </div>
-                <Button variant="outline" size="sm" className="text-xs">
-                  Urutan: Skor
-                  <ChevronDown className="h-3 w-3 ml-1" />
-                </Button>
-                <Button variant="outline" size="sm" className="text-xs">
-                  Semua Status
-                  <ChevronDown className="h-3 w-3 ml-1" />
-                </Button>
-              </div>
-              
-              {/* Participant Cards */}
-              <div className="grid md:grid-cols-2 gap-4">
-                <ParticipantCard
-                  name="Vito Andareas Manik"
-                  attempt="Percobaan ke-1"
-                  questions="20/20"
-                  score="10"
-                  correct="2/20"
-                  active="1d ago"
-                  status="Completed"
-                />
-                <ParticipantCard
-                  name="Vito Andareas Manik"
-                  attempt="Percobaan ke-2"
-                  questions="4/20"
-                  score="0"
-                  correct="0/4"
-                  active="1d ago"
-                  status="Completed"
-                />
               </div>
             </div>
-          </Card>
+          </Safari>
         </div>
       </div>
     </section>
