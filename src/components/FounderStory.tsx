@@ -1,182 +1,86 @@
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { Play } from "lucide-react";
 import founderTeamImage from "@/assets/founder-team.jpeg";
 
 export const FounderStory = () => {
-  return <section className="py-12 md:py-20 lg:py-24 px-4 bg-background">
+  return (
+    <section className="py-16 md:py-24 px-4 bg-secondary/10">
       <div className="container mx-auto max-w-6xl">
-        <div className="mb-8 md:mb-12 lg:mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-            {/* Left Side - Image with SVG Frame */}
-            <div className="relative w-full max-w-md mx-auto lg:mx-0">
-              {/* SVG Frame */}
-              <div className="relative">
-                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  {/* Corner decorations */}
-                  <path d="M 10 10 L 60 10 L 60 15 L 15 15 L 15 60 L 10 60 Z" fill="hsl(var(--primary))" opacity="0.6"/>
-                  <path d="M 390 10 L 340 10 L 340 15 L 385 15 L 385 60 L 390 60 Z" fill="hsl(var(--primary))" opacity="0.6"/>
-                  <path d="M 10 490 L 60 490 L 60 485 L 15 485 L 15 440 L 10 440 Z" fill="hsl(var(--primary))" opacity="0.6"/>
-                  <path d="M 390 490 L 340 490 L 340 485 L 385 485 L 385 440 L 390 440 Z" fill="hsl(var(--primary))" opacity="0.6"/>
-                  
-                  {/* Border frame */}
-                  <rect x="8" y="8" width="384" height="484" stroke="hsl(var(--primary))" strokeWidth="2" fill="none" opacity="0.3"/>
-                  <rect x="15" y="15" width="370" height="470" stroke="hsl(var(--border))" strokeWidth="1" fill="none"/>
-                  
-                  {/* Decorative dots */}
-                  <circle cx="30" cy="30" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
-                  <circle cx="370" cy="30" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
-                  <circle cx="30" cy="470" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
-                  <circle cx="370" cy="470" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
-                </svg>
-                
-                {/* Image */}
-                <div className="relative p-6 md:p-8">
-                  <div className="relative overflow-hidden rounded-lg shadow-xl">
-                    <img 
-                      src={founderTeamImage} 
-                      alt="Founder Team" 
-                      className="w-full h-auto object-cover"
-                    />
-                    {/* Gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
-                  </div>
-                </div>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          {/* Left Side - Image Card */}
+          <div className="w-full max-w-sm mx-auto lg:mx-0 animate-fade-in">
+            <Card className="bg-card border-border overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover-scale">
+              <div className="aspect-square relative">
+                <img 
+                  src={founderTeamImage} 
+                  alt="Tim DataFast" 
+                  className="w-full h-full object-cover"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent" />
               </div>
-              
-              {/* Badge */}
-              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-10">
-                <Badge className="bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold shadow-lg">
-                  Tim DataFast 🚀
-                </Badge>
-              </div>
-            </div>
+            </Card>
+          </div>
 
-            {/* Right Side - Story Text */}
-            <div className="space-y-4 md:space-y-6">
+          {/* Right Side - Story Text */}
+          <div className="space-y-4 md:space-y-5 animate-fade-in" style={{ animationDelay: '0.2s' }}>
             <div className="flex items-center gap-2 text-foreground/80">
-              <span className="text-base md:text-lg">👋</span>
-              <span className="text-sm md:text-base lg:text-lg">
-                Hey, <span className="font-semibold">Pioneer</span> from <span className="font-semibold">Indonesia</span> 🇮🇩
+              <span className="text-lg md:text-xl">👋</span>
+              <span className="text-sm md:text-base">
+                Hey, <span className="font-semibold text-foreground">Pioneer</span> from <span className="font-semibold text-foreground">Indonesia</span> 🇮🇩
               </span>
             </div>
 
-            <p className="text-foreground/80 text-sm md:text-base lg:text-lg leading-relaxed">
+            <p className="text-foreground/80 text-sm md:text-base leading-relaxed">
               I'm Marc, the creator of DataFast. I've also built{" "}
-              <a href="#" className="text-primary hover:text-primary/80 font-semibold underline-offset-4 hover:underline">
+              <a 
+                href="#" 
+                className="text-foreground font-semibold underline decoration-primary decoration-2 underline-offset-4 hover:text-primary transition-colors"
+              >
                 24 startups
               </a>{" "}
               and earned $2M+ online.
             </p>
 
-            <p className="text-foreground/80 text-sm md:text-base lg:text-lg leading-relaxed">
-              I learned that <span className="font-semibold">data is a goldmine of opportunities</span>. 
-              But most analytics tools just show <span className="italic">vanity metrics</span>...
+            <p className="text-foreground/80 text-sm md:text-base leading-relaxed">
+              I learned that <span className="font-semibold text-foreground">data is a goldmine of opportunities</span>. 
+              But most analytics tools just show <span className="italic text-foreground/60">vanity metrics</span>...
             </p>
 
-            <p className="text-foreground/60 italic text-sm md:text-base leading-relaxed">
+            <p className="text-foreground/60 italic text-sm md:text-base leading-relaxed pl-4 border-l-2 border-border">
               Pageviews, visitors, bounce rates... but do any of these actually tell you where 
               your money is coming from?
             </p>
 
-            <div className="space-y-2 md:space-y-3 pt-2 md:pt-4">
+            <div className="space-y-2 pt-2">
               <p className="text-foreground/80 text-sm md:text-base font-medium">
                 So I built DataFast for 3 reasons:
               </p>
-              <div className="space-y-1 md:space-y-2 pl-3 md:pl-4">
+              <div className="space-y-2 pl-1">
                 <p className="text-foreground/80 text-sm md:text-base">
-                  1. <span className="font-semibold">Find marketing channels that drive PAYING customers</span>, not just pageviews.
+                  1. <span className="font-semibold text-foreground">Find marketing channels that drive PAYING customers</span>, not just pageviews.
                 </p>
                 <p className="text-foreground/80 text-sm md:text-base">
-                  2. <span className="font-semibold">Discover what makes people buy</span> and turn more visits into revenue.
+                  2. <span className="font-semibold text-foreground">Discover what makes people buy</span> and turn more visits into revenue.
                 </p>
                 <p className="text-foreground/80 text-sm md:text-base">
-                  3. <span className="font-semibold">Make revenue-driven decisions</span> and work on the right things.
+                  3. <span className="font-semibold text-foreground">Make revenue-driven decisions</span> and work on the right things.
                 </p>
               </div>
             </div>
 
-            <p className="text-foreground/80 text-sm md:text-base leading-relaxed pt-2 md:pt-4">
+            <p className="text-foreground/80 text-sm md:text-base leading-relaxed pt-2">
               I'm building DataFast in front of{" "}
-              <a href="#" className="text-primary hover:text-primary/80 font-semibold underline-offset-4 hover:underline">
+              <a 
+                href="#" 
+                className="text-foreground font-semibold underline decoration-primary decoration-2 underline-offset-4 hover:text-primary transition-colors"
+              >
                 127,000+ people
               </a>{" "}
               on Twitter. Let's ship! 🚢
             </p>
-            </div>
           </div>
         </div>
-
-        {/* Bottom - Dashboard Preview with Video */}
-        <div className="relative">
-          <Card className="bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden">
-            <div className="aspect-video md:aspect-[16/9] bg-gradient-to-br from-muted/30 to-muted/10 relative">
-              {/* Dashboard mockup */}
-              <div className="absolute inset-0 p-3 md:p-6 lg:p-8 flex items-center justify-center overflow-hidden">
-                <div className="w-full max-w-5xl bg-background rounded-lg shadow-2xl border border-border p-3 md:p-4 lg:p-6">
-                  <div className="flex justify-between items-center mb-3 md:mb-4 lg:mb-6 pb-2 md:pb-3 lg:pb-4 border-b border-border/50">
-                    <div className="flex items-center gap-1 md:gap-2">
-                      <div className="h-4 w-4 md:h-5 lg:h-6 md:w-5 lg:w-6 bg-primary/20 rounded flex items-center justify-center text-xs">📊</div>
-                      <span className="text-xs md:text-sm lg:text-base font-semibold text-foreground">DataFast</span>
-                    </div>
-                    <div className="hidden sm:flex items-center gap-2 md:gap-4">
-                      <span className="text-xs md:text-sm text-muted-foreground">M</span>
-                      <span className="text-xs md:text-sm text-muted-foreground">Marc Lou</span>
-                    </div>
-                  </div>
-                  
-                  <div className="mb-2 md:mb-3 lg:mb-4 text-xs md:text-sm text-foreground/70">
-                    Hey Marc Lou, you got <span className="font-semibold text-foreground">8.4k visitors</span> and made{" "}
-                    <span className="font-semibold text-foreground">$2,919</span> in the last 24 hours.
-                  </div>
-
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-3">
-                    {[{
-                    name: "shipfa.st",
-                    visitors: "3.4k",
-                    revenue: "$2.5k"
-                  }, {
-                    name: "insigh.to",
-                    visitors: "236"
-                  }, {
-                    name: "zenvoice.io",
-                    visitors: "511"
-                  }, {
-                    name: "byedispute.com",
-                    visitors: "3.4k",
-                    revenue: "$2.5k"
-                  }, {
-                    name: "poopup.ai",
-                    visitors: "236"
-                  }, {
-                    name: "launchvir.al",
-                    visitors: "511"
-                  }].map((site, i) => <div key={i} className="bg-muted/20 rounded-lg p-2 md:p-3 border border-border/30">
-                        <div className="text-xs text-muted-foreground mb-1 md:mb-2 truncate">{site.name}</div>
-                        <div className="h-8 md:h-10 lg:h-12 bg-primary/5 rounded mb-1 md:mb-2 flex items-end justify-around px-1 md:px-2">
-                          {[...Array(8)].map((_, j) => <div key={j} className="w-0.5 md:w-1 bg-primary/30 rounded-t" style={{
-                        height: `${Math.random() * 80 + 20}%`
-                      }} />)}
-                        </div>
-                        <div className="text-xs text-foreground/60 truncate">
-                          {site.visitors} visitors
-                          {site.revenue && <span className="ml-1">• {site.revenue}</span>}
-                        </div>
-                      </div>)}
-                  </div>
-                </div>
-              </div>
-
-              {/* Play buttons overlay */}
-              <div className="absolute inset-0 flex items-center justify-center gap-4 md:gap-6 lg:gap-8">
-                
-                <button className="hidden sm:flex h-12 w-12 md:h-16 md:w-16 lg:h-20 lg:w-20 rounded-full bg-foreground hover:bg-foreground/90 transition-all duration-300 items-center justify-center shadow-2xl hover:scale-110 transform">
-                  <Play className="h-5 w-5 md:h-6 md:w-6 lg:h-8 lg:w-8 text-background fill-background ml-0.5 md:ml-1" />
-                </button>
-              </div>
-            </div>
-          </Card>
-        </div>
       </div>
-    </section>;
+    </section>
+  );
 };
