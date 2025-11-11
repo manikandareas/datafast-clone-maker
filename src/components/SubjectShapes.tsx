@@ -23,55 +23,63 @@ export const SubjectShapes = () => {
     return 4; // Chemistry
   };
 
+  // Calculate position based on scroll progress
+  const getPosition = () => {
+    const viewportWidth = window.innerWidth;
+    const viewportHeight = window.innerHeight;
+    
+    // Define waypoints: each waypoint has x%, y%, scale, rotation
+    const waypoints = [
+      { x: 10, y: 15, scale: 1, rotation: 0 },      // Top left - Hero
+      { x: 80, y: 20, scale: 1.2, rotation: 90 },   // Top right
+      { x: 75, y: 50, scale: 1.1, rotation: 180 },  // Middle right
+      { x: 15, y: 70, scale: 1.3, rotation: 270 },  // Bottom left
+      { x: 70, y: 75, scale: 1, rotation: 360 },    // Bottom right
+      { x: 50, y: 85, scale: 0.9, rotation: 450 },  // Center bottom - End
+    ];
+
+    const segmentIndex = Math.min(
+      Math.floor(scrollProgress * waypoints.length), 
+      waypoints.length - 2
+    );
+    const segmentProgress = (scrollProgress * waypoints.length) % 1;
+
+    const start = waypoints[segmentIndex];
+    const end = waypoints[segmentIndex + 1];
+
+    // Smooth easing function
+    const ease = (t: number) => t < 0.5 
+      ? 2 * t * t 
+      : -1 + (4 - 2 * t) * t;
+
+    const easedProgress = ease(segmentProgress);
+
+    return {
+      x: start.x + (end.x - start.x) * easedProgress,
+      y: start.y + (end.y - start.y) * easedProgress,
+      scale: start.scale + (end.scale - start.scale) * easedProgress,
+      rotation: start.rotation + (end.rotation - start.rotation) * easedProgress,
+    };
+  };
+
+  const position = getPosition();
   const shapeIndex = getShapeIndex();
-  const transitionProgress = (scrollProgress % 0.2) / 0.2; // Progress within current shape
 
   return (
-    <>
-      {/* Top Left Shape */}
-      <div 
-        className="fixed top-0 left-0 w-64 h-64 -translate-x-16 -translate-y-16 pointer-events-none z-10 transition-all duration-700 ease-out"
-        style={{
-          transform: `translate(-4rem, -4rem) rotate(${scrollProgress * 360}deg) scale(${1 + Math.sin(scrollProgress * Math.PI * 2) * 0.1})`,
-        }}
-      >
-        <ShapeSVG index={shapeIndex} position="top-left" />
-      </div>
-
-      {/* Top Right Shape */}
-      <div 
-        className="fixed top-0 right-0 w-80 h-80 translate-x-20 -translate-y-20 pointer-events-none z-10 transition-all duration-700 ease-out"
-        style={{
-          transform: `translate(5rem, -5rem) rotate(${-scrollProgress * 360}deg) scale(${1 + Math.cos(scrollProgress * Math.PI * 2) * 0.1})`,
-        }}
-      >
-        <ShapeSVG index={(shapeIndex + 1) % 5} position="top-right" />
-      </div>
-
-      {/* Bottom Left Shape */}
-      <div 
-        className="fixed bottom-32 left-0 w-72 h-72 -translate-x-20 pointer-events-none z-10 transition-all duration-700 ease-out"
-        style={{
-          transform: `translate(-5rem, 0) rotate(${scrollProgress * 180}deg) scale(${1 + Math.sin(scrollProgress * Math.PI * 4) * 0.15})`,
-        }}
-      >
-        <ShapeSVG index={(shapeIndex + 2) % 5} position="bottom-left" />
-      </div>
-
-      {/* Bottom Right Shape */}
-      <div 
-        className="fixed bottom-20 right-0 w-96 h-96 translate-x-24 pointer-events-none z-10 transition-all duration-700 ease-out"
-        style={{
-          transform: `translate(6rem, 0) rotate(${-scrollProgress * 180}deg) scale(${1 + Math.cos(scrollProgress * Math.PI * 4) * 0.15})`,
-        }}
-      >
-        <ShapeSVG index={(shapeIndex + 3) % 5} position="bottom-right" />
-      </div>
-    </>
+    <div 
+      className="fixed pointer-events-none z-10 w-64 h-64 md:w-80 md:h-80 transition-all duration-500 ease-out"
+      style={{
+        left: `${position.x}%`,
+        top: `${position.y}%`,
+        transform: `translate(-50%, -50%) rotate(${position.rotation}deg) scale(${position.scale})`,
+      }}
+    >
+      <ShapeSVG index={shapeIndex} />
+    </div>
   );
 };
 
-const ShapeSVG = ({ index, position }: { index: number; position: string }) => {
+const ShapeSVG = ({ index }: { index: number }) => {
   const shapes = [
     // Math - Plus/Multiplication symbols
     <svg key="math" viewBox="0 0 200 200" fill="none" className="w-full h-full">
