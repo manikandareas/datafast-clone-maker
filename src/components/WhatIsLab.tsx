@@ -1,6 +1,6 @@
 export const WhatIsLab = () => {
   return (
-    <section className="py-16 md:py-24 px-4 bg-muted/30">
+    <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
           <div className="inline-block mb-3 md:mb-4">

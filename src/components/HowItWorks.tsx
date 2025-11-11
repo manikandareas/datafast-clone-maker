@@ -18,7 +18,7 @@ const StepCard = ({
   return (
     <>
       <Card className="flex-1 bg-card/30 backdrop-blur-sm border-border/30 overflow-hidden hover:border-primary/20 transition-all duration-300">
-        <div className="aspect-[4/3] bg-muted/20 border-b border-border/30 flex items-center justify-center p-6">
+        <div className="aspect-4/3 bg-muted/20 border-b border-border/30 flex items-center justify-center p-6">
           {visual}
         </div>
         <div className="p-6">
@@ -32,7 +32,7 @@ const StepCard = ({
       </Card>
       
       {showArrow && (
-        <ArrowRight className="hidden lg:block h-8 w-8 text-muted-foreground/30 flex-shrink-0 mx-4" />
+        <ArrowRight className="hidden lg:block h-8 w-8 text-muted-foreground/30 shrink-0 mx-4" />
       )}
     </>
   );
@@ -40,7 +40,7 @@ const StepCard = ({
 
 export const HowItWorks = () => {
   return (
-    <section className="py-16 md:py-24 px-4 bg-gradient-to-b from-background to-muted/30">
+    <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-12 md:mb-16">
           <div className="inline-block mb-4">
