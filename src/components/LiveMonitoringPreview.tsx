@@ -84,7 +84,7 @@ const ParticipantCard = ({
     </Card>;
 };
 export const LiveMonitoringPreview = () => {
-  return <section className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-muted/20 to-background">
+  return <section className="pt-2 pb-12 md:pt-4 md:pb-20 lg:pt-6 lg:pb-24 px-4 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto max-w-7xl">
         
 
