@@ -20,8 +20,8 @@ export const Hero = () => {
         <SubjectShapes />
       </div>
       <div className="container mx-auto max-w-5xl text-center relative z-20">
-        <div className="inline-block mb-4 md:mb-6 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-accent/10 border border-accent/20">
-          <span className="text-accent font-semibold text-xs md:text-sm">
+        <div className="inline-block mb-4 md:mb-6 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-accent border border-accent">
+          <span className="text-accent-foreground font-semibold text-xs md:text-sm">
             🎉 Beta Gratis - Akses Penuh Tanpa Batas
           </span>
         </div>
