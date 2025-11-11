@@ -1,34 +1,28 @@
 import { Card } from "@/components/ui/card";
-import { Sparkles, Monitor, MessageSquare, TrendingUp } from "lucide-react";
 
 interface FeatureCardProps {
-  icon: React.ReactNode;
   title: string;
   description: string;
-  keyPoints: string[];
+  previewContent: React.ReactNode;
 }
 
-const FeatureCard = ({ icon, title, description, keyPoints }: FeatureCardProps) => {
+const FeatureCard = ({ title, description, previewContent }: FeatureCardProps) => {
   return (
-    <Card className="bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-300 group p-8">
-      <div className="mb-6 text-primary">
-        {icon}
+    <Card className="bg-card border-border overflow-hidden hover:shadow-lg transition-all duration-300 group rounded-xl">
+      <div className="p-8 pb-6">
+        <h3 className="text-2xl font-bold text-foreground mb-3">{title}</h3>
+        <p className="text-muted-foreground leading-relaxed text-base">
+          {description}{" "}
+          <a href="#demo" className="text-accent hover:text-accent/80 transition-colors font-medium underline">
+            See live demo
+          </a>
+        </p>
       </div>
-      <h3 className="text-2xl font-bold text-foreground mb-4">{title}</h3>
-      <p className="text-muted-foreground leading-relaxed mb-6">
-        {description}
-      </p>
-      <ul className="space-y-2">
-        {keyPoints.map((point, index) => (
-          <li key={index} className="flex items-start gap-2 text-sm text-foreground/80">
-            <span className="text-green-500 mt-0.5">✅</span>
-            <span>{point}</span>
-          </li>
-        ))}
-      </ul>
-      <a href="#demo" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium mt-6">
-        Lihat Demo Langsung →
-      </a>
+      <div className="px-8 pb-8">
+        <div className="bg-background rounded-lg border border-border overflow-hidden">
+          {previewContent}
+        </div>
+      </div>
     </Card>
   );
 };
@@ -51,61 +45,110 @@ export const Features = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           <FeatureCard
-            icon={<Sparkles className="h-12 w-12" />}
             title="Generate Soal dengan AI"
             description="Upload PDF, URL, atau teks—AI bikin soal berkualitas dalam hitungan menit. Powered by RAG technology untuk soal yang relevan dengan konteks."
-            keyPoints={[
-              "Multi-source input: PDF, URL, Raw Text",
-              "RAG (Retrieval-Augmented Generation) technology",
-              "Subject detection otomatis (6 kategori)",
-              "Smart retry untuk kualitas konsisten",
-              "Provenance tracking—soal terhubung ke source material",
-              "Edit manual tetap tersedia"
-            ]}
+            previewContent={
+              <div className="p-6 space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <div className="h-5 w-5 bg-primary/50 rounded" />
+                  </div>
+                  <div className="flex-1">
+                    <div className="h-3 bg-muted rounded w-32 mb-2" />
+                    <div className="h-2 bg-muted/50 rounded w-24" />
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="h-2 bg-muted rounded w-full" />
+                  <div className="h-2 bg-muted rounded w-5/6" />
+                  <div className="h-2 bg-muted rounded w-4/6" />
+                </div>
+                <div className="grid grid-cols-2 gap-2 pt-2">
+                  <div className="h-8 bg-muted/30 rounded border border-border" />
+                  <div className="h-8 bg-muted/30 rounded border border-border" />
+                  <div className="h-8 bg-muted/30 rounded border border-border" />
+                  <div className="h-8 bg-muted/30 rounded border border-border" />
+                </div>
+              </div>
+            }
           />
 
           <FeatureCard
-            icon={<Monitor className="h-12 w-12" />}
             title="Pantau Siswa Real-time"
             description="Lihat siapa yang sedang mengerjakan, siapa yang kesulitan, dan progress setiap siswa—semuanya update otomatis tanpa refresh."
-            keyPoints={[
-              "Real-time participant tracking dengan WebSocket",
-              "Status badges: In Progress, Completed, Timeout, Abandoned",
-              "Live metrics: Active now, Average score, Completion rate",
-              "Per-student detail: Current question, correct answers, time spent",
-              "Search, sort, filter participants",
-              "Pulse indicator untuk yang sedang aktif"
-            ]}
+            previewContent={
+              <div className="p-6 space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="h-4 bg-muted rounded w-32" />
+                  <div className="h-6 w-16 bg-primary/20 rounded-full" />
+                </div>
+                {[1, 2, 3].map((i) => (
+                  <div key={i} className="flex items-center gap-3 p-3 bg-muted/20 rounded-lg border border-border">
+                    <div className="h-10 w-10 rounded-full bg-primary/30" />
+                    <div className="flex-1">
+                      <div className="h-3 bg-muted rounded w-28 mb-2" />
+                      <div className="h-2 bg-muted/50 rounded w-40" />
+                    </div>
+                    <div className="h-6 w-12 bg-accent/20 rounded" />
+                  </div>
+                ))}
+              </div>
+            }
           />
 
           <FeatureCard
-            icon={<MessageSquare className="h-12 w-12" />}
             title="Feedback yang Membangun"
             description="Penjelasan personal setelah submit. Bantu siswa paham kenapa salah dan cara memperbaikinya."
-            keyPoints={[
-              "Explanation field untuk setiap soal",
-              "Personal feedback per attempt",
-              "Feedback status tracking (pending/completed)",
-              "Optional—toggle on/off sesuai kebutuhan",
-              "Bantu siswa belajar dari kesalahan",
-              "Review mode untuk siswa lihat kembali jawaban"
-            ]}
+            previewContent={
+              <div className="p-6 space-y-4">
+                <div className="space-y-2">
+                  <div className="h-3 bg-muted rounded w-full" />
+                  <div className="h-3 bg-muted rounded w-5/6" />
+                </div>
+                <div className="bg-accent/10 border border-accent/30 rounded-lg p-4">
+                  <div className="h-3 bg-accent/30 rounded w-24 mb-3" />
+                  <div className="space-y-2">
+                    <div className="h-2 bg-accent/20 rounded w-full" />
+                    <div className="h-2 bg-accent/20 rounded w-4/5" />
+                    <div className="h-2 bg-accent/20 rounded w-5/6" />
+                  </div>
+                </div>
+                <div className="flex gap-2">
+                  <div className="h-8 flex-1 bg-muted/30 rounded border border-border" />
+                  <div className="h-8 flex-1 bg-primary/20 rounded border border-primary/30" />
+                </div>
+              </div>
+            }
           />
 
           <FeatureCard
-            icon={<TrendingUp className="h-12 w-12" />}
             title="Analytics Mendalam"
             description="Score distribution, completion trends, dan insights untuk improve cara ngajar."
-            keyPoints={[
-              "Score distribution chart (visual dengan Recharts)",
-              "Completion rate tracking",
-              "Average score trends",
-              "Per-question difficulty analysis",
-              "Time spent analytics",
-              "Historical comparison (multiple sessions)"
-            ]}
+            previewContent={
+              <div className="p-6 space-y-4">
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="bg-muted/20 rounded-lg p-3 border border-border">
+                    <div className="h-2 bg-muted rounded w-12 mb-2" />
+                    <div className="h-4 bg-primary/30 rounded w-16" />
+                  </div>
+                  <div className="bg-muted/20 rounded-lg p-3 border border-border">
+                    <div className="h-2 bg-muted rounded w-12 mb-2" />
+                    <div className="h-4 bg-accent/30 rounded w-16" />
+                  </div>
+                  <div className="bg-muted/20 rounded-lg p-3 border border-border">
+                    <div className="h-2 bg-muted rounded w-12 mb-2" />
+                    <div className="h-4 bg-chart-3 rounded w-16" />
+                  </div>
+                </div>
+                <div className="flex items-end gap-1 h-32">
+                  {[40, 60, 45, 80, 65, 90, 70, 50].map((height, i) => (
+                    <div key={i} className="flex-1 bg-primary/30 rounded-t" style={{ height: `${height}%` }} />
+                  ))}
+                </div>
+              </div>
+            }
           />
         </div>
       </div>
