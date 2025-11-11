@@ -51,7 +51,7 @@ export const HowItWorks = () => {
               CARA KERJA
             </span>
           </div>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-3 md:mb-4 px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-4">
             Dari Materi ke Quiz Interaktif dalam 4 Langkah
           </h2>
           <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
