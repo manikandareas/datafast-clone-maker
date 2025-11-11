@@ -19,11 +19,10 @@ export const Hero = () => {
           monitoring, auto-save, dan analytics mendalam untuk pendidik modern Indonesia.
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 max-w-md mx-auto mb-6 md:mb-8 px-4">
-          <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-semibold w-full sm:w-auto">
+        <div className="mb-6 md:mb-8 px-4 flex justify-center">
+          <Button size="lg" className="h-12 md:h-14 px-6 md:px-8 text-base md:text-lg font-semibold">
             Mulai Gratis Sekarang 🚀
           </Button>
-          
         </div>
 
         <p className="text-xs md:text-sm text-muted-foreground mb-6 md:mb-8">
