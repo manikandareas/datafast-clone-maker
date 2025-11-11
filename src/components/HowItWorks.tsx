@@ -16,26 +16,26 @@ const StepCard = ({
   showArrow?: boolean;
 }) => {
   return (
-    <div className="flex items-center gap-6">
+    <div className="flex items-center gap-3 md:gap-6">
       <Card className="flex-1 bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-300">
-        <div className="aspect-square bg-gradient-to-br from-primary/10 via-accent/5 to-transparent border-b border-border/30 flex items-center justify-center">
-          <div className="text-primary">
+        <div className="aspect-square bg-gradient-to-br from-primary/10 via-accent/5 to-transparent border-b border-border/30 flex items-center justify-center p-4">
+          <div className="text-primary scale-75 sm:scale-100">
             {icon}
           </div>
         </div>
-        <div className="p-6">
-          <div className="text-sm text-muted-foreground font-semibold mb-2">LANGKAH {number}</div>
-          <h3 className="text-xl font-semibold text-foreground mb-3">
+        <div className="p-4 md:p-6">
+          <div className="text-xs md:text-sm text-muted-foreground font-semibold mb-2">LANGKAH {number}</div>
+          <h3 className="text-base md:text-xl font-semibold text-foreground mb-2 md:mb-3">
             {title}
           </h3>
-          <p className="text-muted-foreground leading-relaxed">
+          <p className="text-sm md:text-base text-muted-foreground leading-relaxed">
             {description}
           </p>
         </div>
       </Card>
       
       {showArrow && (
-        <ArrowRight className="hidden lg:block h-8 w-8 text-muted-foreground/40 flex-shrink-0" />
+        <ArrowRight className="hidden lg:block h-6 w-6 xl:h-8 xl:w-8 text-muted-foreground/40 flex-shrink-0" />
       )}
     </div>
   );
@@ -43,29 +43,29 @@ const StepCard = ({
 
 export const HowItWorks = () => {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4">
-            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="inline-block mb-3 md:mb-4">
+            <span className="text-primary text-xs md:text-sm font-semibold tracking-wider uppercase">
               CARA KERJA
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-3 md:mb-4 px-4">
             Dari Materi ke Quiz Interaktif dalam 4 Langkah
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             Upload materi, AI bikin soal, siswa join pakai kode, kamu pantau real-time. 
             Selesai dalam 5 menit, hemat waktu berjam-jam!
           </p>
-          <div className="mt-4 inline-block px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
-            <span className="text-sm text-accent">
+          <div className="mt-3 md:mt-4 inline-block px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-accent/10 border border-accent/20">
+            <span className="text-xs md:text-sm text-accent">
               ✅ Tanpa kartu kredit • 🔒 Auto-save biar aman
             </span>
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-4 gap-6 lg:gap-0 mb-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-0 mb-8 md:mb-12 lg:mb-16">
           <StepCard
             number={1}
             icon={<FileText className="h-20 w-20" />}

@@ -35,23 +35,23 @@ const FeatureCard = ({ icon, title, description, keyPoints }: FeatureCardProps) 
 
 export const Features = () => {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="features" className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-16">
-          <div className="inline-block mb-4">
-            <span className="text-primary text-sm font-semibold tracking-wider uppercase">
+        <div className="text-center mb-8 md:mb-12 lg:mb-16">
+          <div className="inline-block mb-3 md:mb-4">
+            <span className="text-primary text-xs md:text-sm font-semibold tracking-wider uppercase">
               FEATURES
             </span>
           </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground mb-3 md:mb-4 px-4">
             Platform Assessment yang Bikin Ngajar Lebih Efektif
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Semua yang kamu butuhkan untuk bikin, share, dan analisa quiz—dalam satu tempat.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
           <FeatureCard
             icon={<Sparkles className="h-12 w-12" />}
             title="Generate Soal dengan AI"

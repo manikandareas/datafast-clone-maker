@@ -50,26 +50,26 @@ export const FAQ = () => {
   ];
 
   return (
-    <section className="py-24 px-4 bg-background">
+    <section id="faq" className="py-12 md:py-20 lg:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-3xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-6 text-foreground">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6 text-foreground px-4">
           Pertanyaan yang Sering Diajukan
         </h2>
-        <p className="text-center text-muted-foreground mb-12">
+        <p className="text-center text-sm md:text-base text-muted-foreground mb-8 md:mb-12 px-4">
           Semua yang perlu kamu tahu tentang Ngerti.in
         </p>
         
-        <Accordion type="single" collapsible className="space-y-4">
+        <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
           {faqs.map((faq, index) => (
             <AccordionItem 
               key={index} 
               value={`item-${index}`}
-              className="border border-border/50 rounded-lg px-6 bg-card/30"
+              className="border border-border/50 rounded-lg px-4 md:px-6 bg-card/30"
             >
-              <AccordionTrigger className="text-left text-foreground hover:no-underline">
+              <AccordionTrigger className="text-left text-sm md:text-base text-foreground hover:no-underline py-4">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-muted-foreground leading-relaxed">
+              <AccordionContent className="text-sm md:text-base text-muted-foreground leading-relaxed">
                 {faq.answer}
               </AccordionContent>
             </AccordionItem>

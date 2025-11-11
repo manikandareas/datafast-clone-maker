@@ -37,9 +37,9 @@ export const Footer = () => {
   const barHeights = Array.from({ length: 20 }, () => Math.random() * 60 + 20);
 
   return (
-    <footer className="bg-background border-t border-border/50 py-16 px-4">
+    <footer className="bg-background border-t border-border/50 py-8 md:py-12 lg:py-16 px-4">
       <div className="container mx-auto max-w-7xl">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8 md:gap-12">
           {/* Left Column - Brand & Stats */}
           <div className="lg:col-span-4 space-y-6">
             {/* Logo & Description */}

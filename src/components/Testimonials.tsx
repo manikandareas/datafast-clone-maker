@@ -9,20 +9,20 @@ interface TestimonialProps {
 
 const TestimonialCard = ({ name, role, content }: TestimonialProps) => {
   return (
-    <Card className="flex-shrink-0 w-[380px] p-6 bg-card/80 backdrop-blur-sm border-border hover:border-primary/50 hover:bg-card transition-all duration-300 group">
-      <div className="mb-4 text-primary/20">
-        <Quote className="h-10 w-10" />
+    <Card className="flex-shrink-0 w-[300px] md:w-[340px] lg:w-[380px] p-4 md:p-6 bg-card/80 backdrop-blur-sm border-border hover:border-primary/50 hover:bg-card transition-all duration-300 group">
+      <div className="mb-3 md:mb-4 text-primary/20">
+        <Quote className="h-8 w-8 md:h-10 md:w-10" />
       </div>
-      <p className="text-foreground text-base mb-6 leading-relaxed italic">
+      <p className="text-foreground text-sm md:text-base mb-4 md:mb-6 leading-relaxed italic">
         "{content}"
       </p>
-      <div className="flex items-center gap-3">
-        <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary text-lg">
+      <div className="flex items-center gap-2 md:gap-3">
+        <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-primary/10 flex items-center justify-center font-bold text-primary text-base md:text-lg flex-shrink-0">
           {name[0]}
         </div>
-        <div>
-          <div className="font-semibold text-foreground">{name}</div>
-          <div className="text-sm text-muted-foreground">{role}</div>
+        <div className="min-w-0">
+          <div className="font-semibold text-foreground text-sm md:text-base truncate">{name}</div>
+          <div className="text-xs md:text-sm text-muted-foreground truncate">{role}</div>
         </div>
       </div>
     </Card>
@@ -89,12 +89,12 @@ export const Testimonials = () => {
   ];
 
   return (
-    <section className="py-24 bg-background overflow-hidden">
-      <div className="mb-16 text-center px-4">
-        <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+    <section id="testimonials" className="py-12 md:py-20 lg:py-24 bg-background overflow-hidden">
+      <div className="mb-8 md:mb-12 lg:mb-16 text-center px-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4">
           Apa Kata Pendidik Indonesia?
         </h2>
-        <p className="text-lg text-muted-foreground">
+        <p className="text-base md:text-lg text-muted-foreground">
           Ribuan guru dan dosen sudah beralih ke cara yang lebih smart dalam membuat assessment
         </p>
       </div>

@@ -14,14 +14,14 @@ const StatCard = ({
   icon: React.ReactNode;
   highlight?: boolean;
 }) => (
-  <Card className={`p-4 ${highlight ? 'border-primary bg-primary/5' : 'bg-card/50'}`}>
-    <div className="flex items-center gap-3">
-      <div className={`p-2 rounded-lg ${highlight ? 'bg-primary/10' : 'bg-muted'}`}>
+  <Card className={`p-3 md:p-4 ${highlight ? 'border-primary bg-primary/5' : 'bg-card/50'}`}>
+    <div className="flex items-center gap-2 md:gap-3">
+      <div className={`p-1.5 md:p-2 rounded-lg ${highlight ? 'bg-primary/10' : 'bg-muted'}`}>
         {icon}
       </div>
-      <div>
-        <div className="text-sm text-muted-foreground">{label}</div>
-        <div className="text-2xl font-bold text-foreground">{value}</div>
+      <div className="min-w-0">
+        <div className="text-xs md:text-sm text-muted-foreground truncate">{label}</div>
+        <div className="text-lg md:text-2xl font-bold text-foreground">{value}</div>
       </div>
     </div>
   </Card>
@@ -78,22 +78,22 @@ const ParticipantCard = ({
 
 export const DashboardPreview = () => {
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-muted/20 to-background">
+    <section className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-muted/20 to-background">
       <div className="container mx-auto max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3 md:mb-4 px-4">
             Lihat Bagaimana Ngerti.in Bekerja
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base md:text-lg text-muted-foreground max-w-3xl mx-auto px-4">
             Monitoring aktivitas siswa secara real-time. Lihat siapa yang sedang mengerjakan, 
             siapa yang kesulitan, dan bagaimana performa keseluruhan—semuanya dalam satu dashboard.
           </p>
         </div>
 
         <div className="relative">
-          <Card className="p-6 shadow-2xl border-border bg-card">
+          <Card className="p-4 md:p-6 shadow-2xl border-border bg-card">
             {/* Real-time Metrics */}
-            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
               <StatCard 
                 label="Total Participants" 
                 value="24"
