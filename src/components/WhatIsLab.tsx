@@ -3,6 +3,11 @@ export const WhatIsLab = () => {
     <section className="py-16 md:py-24 px-4 bg-muted/30">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8 md:mb-12">
+          <div className="inline-block mb-3 md:mb-4">
+            <span className="text-primary text-xs md:text-sm font-semibold tracking-wider uppercase">
+              TENTANG LAB
+            </span>
+          </div>
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-foreground mb-3 md:mb-4">
             Apa itu Lab?
           </h2>
