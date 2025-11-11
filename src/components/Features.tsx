@@ -1,35 +1,34 @@
 import { Card } from "@/components/ui/card";
-import { Play } from "lucide-react";
+import { Sparkles, Monitor, MessageSquare, TrendingUp } from "lucide-react";
 
 interface FeatureCardProps {
+  icon: React.ReactNode;
   title: string;
   description: string;
-  visual: React.ReactNode;
-  hasPlayButton?: boolean;
+  keyPoints: string[];
 }
 
-const FeatureCard = ({ title, description, visual, hasPlayButton = true }: FeatureCardProps) => {
+const FeatureCard = ({ icon, title, description, keyPoints }: FeatureCardProps) => {
   return (
-    <Card className="bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-300 group">
-      <div className="p-8">
-        <h3 className="text-2xl font-bold text-foreground mb-4">{title}</h3>
-        <p className="text-muted-foreground leading-relaxed mb-2">
-          {description}{" "}
-          <a href="#" className="text-primary hover:text-primary/80 transition-colors font-medium">
-            See live demo
-          </a>
-        </p>
+    <Card className="bg-card/50 backdrop-blur-sm border-border/50 overflow-hidden hover:border-primary/30 transition-all duration-300 group p-8">
+      <div className="mb-6 text-primary">
+        {icon}
       </div>
-      <div className="relative bg-background/30 border-t border-border/30">
-        {visual}
-        {hasPlayButton && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <button className="h-20 w-20 rounded-full bg-foreground hover:bg-foreground/90 transition-all duration-300 flex items-center justify-center shadow-2xl group-hover:scale-110">
-              <Play className="h-8 w-8 text-background fill-background ml-1" />
-            </button>
-          </div>
-        )}
-      </div>
+      <h3 className="text-2xl font-bold text-foreground mb-4">{title}</h3>
+      <p className="text-muted-foreground leading-relaxed mb-6">
+        {description}
+      </p>
+      <ul className="space-y-2">
+        {keyPoints.map((point, index) => (
+          <li key={index} className="flex items-start gap-2 text-sm text-foreground/80">
+            <span className="text-green-500 mt-0.5">✅</span>
+            <span>{point}</span>
+          </li>
+        ))}
+      </ul>
+      <a href="#demo" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 transition-colors font-medium mt-6">
+        Lihat Demo Langsung →
+      </a>
     </Card>
   );
 };
@@ -41,160 +40,72 @@ export const Features = () => {
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">
-              Features
+              FEATURES
             </span>
           </div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4">
-            Analytics that bring customers, not confusion
+            Platform Assessment yang Bikin Ngajar Lebih Efektif
           </h2>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Semua yang kamu butuhkan untuk bikin, share, dan analisa quiz—dalam satu tempat.
+          </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           <FeatureCard
-            title="Web analytics"
-            description="Get meaningful insights like Google Analytics, but 10× simpler—focused only on what drives growth, not vanity metrics."
-            visual={
-              <div className="aspect-[16/10] bg-background/50 p-6 flex items-center justify-center">
-                <div className="w-full max-w-lg bg-card rounded-lg shadow-xl border border-border/30 p-4">
-                  <div className="space-y-3">
-                    <div className="flex justify-between text-xs text-muted-foreground pb-2 border-b border-border/30">
-                      <span>Referrer</span>
-                      <span>Visitors</span>
-                    </div>
-                    {[
-                      { name: "Google", count: "4", color: "bg-blue-500" },
-                      { name: "Direct/None", count: "3", color: "bg-gray-500" },
-                      { name: "marcelo.com", count: "3", color: "bg-orange-500" },
-                      { name: "robinsp.se", count: "2", color: "bg-yellow-500" },
-                      { name: "DevDojo.io", count: "2", color: "bg-purple-500" },
-                      { name: "bing.com", count: "2", color: "bg-green-500" },
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center justify-between text-sm">
-                        <div className="flex items-center gap-2">
-                          <div className={`h-2 w-2 rounded-full ${item.color}`} />
-                          <span className="text-foreground/80">{item.name}</span>
-                        </div>
-                        <span className="text-muted-foreground">{item.count}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            }
+            icon={<Sparkles className="h-12 w-12" />}
+            title="Generate Soal dengan AI"
+            description="Upload PDF, URL, atau teks—AI bikin soal berkualitas dalam hitungan menit. Powered by RAG technology untuk soal yang relevan dengan konteks."
+            keyPoints={[
+              "Multi-source input: PDF, URL, Raw Text",
+              "RAG (Retrieval-Augmented Generation) technology",
+              "Subject detection otomatis (6 kategori)",
+              "Smart retry untuk kualitas konsisten",
+              "Provenance tracking—soal terhubung ke source material",
+              "Edit manual tetap tersedia"
+            ]}
           />
 
           <FeatureCard
-            title="Revenue attribution"
-            description="Discover marketing channels drive PAYING customers, customer segments with the highest LTV, and patterns that directly influence purchase decisions."
-            visual={
-              <div className="aspect-[16/10] bg-background/50 p-6 flex items-center justify-center">
-                <div className="w-full max-w-lg bg-card rounded-lg shadow-xl border border-border/30 p-4">
-                  <div className="space-y-4">
-                    <div className="flex justify-between items-center">
-                      <div className="text-xs text-muted-foreground">Last 30 days</div>
-                      <div className="flex gap-4 text-xs">
-                        <div>
-                          <div className="text-muted-foreground">Visitors</div>
-                          <div className="text-foreground font-bold">33.9k</div>
-                        </div>
-                        <div>
-                          <div className="text-muted-foreground">Revenue</div>
-                          <div className="text-foreground font-bold">$37.4k</div>
-                        </div>
-                        <div>
-                          <div className="text-muted-foreground">Conv. rate</div>
-                          <div className="text-primary font-bold">0.48%</div>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="h-32 flex items-end gap-1">
-                      {[30, 45, 25, 60, 40, 55, 35, 70, 50, 45, 65, 40, 75, 55, 48, 62, 38, 58, 42, 68].map((height, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 bg-primary/30 rounded-sm"
-                          style={{ height: `${height}%` }}
-                        />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            }
+            icon={<Monitor className="h-12 w-12" />}
+            title="Pantau Siswa Real-time"
+            description="Lihat siapa yang sedang mengerjakan, siapa yang kesulitan, dan progress setiap siswa—semuanya update otomatis tanpa refresh."
+            keyPoints={[
+              "Real-time participant tracking dengan WebSocket",
+              "Status badges: In Progress, Completed, Timeout, Abandoned",
+              "Live metrics: Active now, Average score, Completion rate",
+              "Per-student detail: Current question, correct answers, time spent",
+              "Search, sort, filter participants",
+              "Pulse indicator untuk yang sedang aktif"
+            ]}
           />
 
           <FeatureCard
-            title="Goals, funnels, journeys"
-            description="Set custom goals like signups or lead magnet downloads, and see the full journey each visitor takes from first click to conversion—so you know exactly what drives results."
-            hasPlayButton={false}
-            visual={
-              <div className="aspect-[16/10] bg-background/50 p-6 flex items-center justify-center">
-                <div className="w-full max-w-lg bg-card rounded-lg shadow-xl border border-border/30 p-6">
-                  <div className="space-y-4">
-                    <div className="flex items-center justify-between">
-                      <div className="text-sm font-semibold text-foreground">Conversion Funnel</div>
-                      <div className="text-xs text-muted-foreground">Last 7 days</div>
-                    </div>
-                    {[
-                      { label: "Landing page", value: 1250, percent: 100 },
-                      { label: "Product viewed", value: 856, percent: 68 },
-                      { label: "Added to cart", value: 342, percent: 27 },
-                      { label: "Checkout", value: 156, percent: 12 },
-                      { label: "Purchase", value: 89, percent: 7 },
-                    ].map((step, i) => (
-                      <div key={i} className="space-y-1">
-                        <div className="flex justify-between text-xs">
-                          <span className="text-foreground/80">{step.label}</span>
-                          <span className="text-muted-foreground">{step.value} ({step.percent}%)</span>
-                        </div>
-                        <div className="h-2 bg-muted/30 rounded-full overflow-hidden">
-                          <div
-                            className="h-full bg-primary rounded-full transition-all duration-500"
-                            style={{ width: `${step.percent}%` }}
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            }
+            icon={<MessageSquare className="h-12 w-12" />}
+            title="Feedback yang Membangun"
+            description="Penjelasan personal setelah submit. Bantu siswa paham kenapa salah dan cara memperbaikinya."
+            keyPoints={[
+              "Explanation field untuk setiap soal",
+              "Personal feedback per attempt",
+              "Feedback status tracking (pending/completed)",
+              "Optional—toggle on/off sesuai kebutuhan",
+              "Bantu siswa belajar dari kesalahan",
+              "Review mode untuk siswa lihat kembali jawaban"
+            ]}
           />
 
           <FeatureCard
-            title="Live visitor intelligence"
-            description="Watch visitors in real time, see who's likely to buy, and use the API to act instantly. It's as useful as it is addictive."
-            visual={
-              <div className="aspect-[16/10] bg-gradient-to-br from-blue-500/20 via-purple-500/20 to-pink-500/20 p-6 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(255,255,255,0))]" />
-                <div className="relative w-full max-w-lg">
-                  <div className="bg-card/90 backdrop-blur-sm rounded-lg shadow-2xl border border-border/50 p-4">
-                    <div className="flex items-center justify-between mb-4">
-                      <div className="text-sm font-semibold text-foreground">Live Visitors</div>
-                      <div className="flex items-center gap-2">
-                        <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse" />
-                        <span className="text-xs text-muted-foreground">14 online</span>
-                      </div>
-                    </div>
-                    <div className="space-y-2">
-                      {[
-                        { country: "🇺🇸", location: "New York, US", page: "/pricing" },
-                        { country: "🇬🇧", location: "London, UK", page: "/features" },
-                        { country: "🇩🇪", location: "Berlin, DE", page: "/dashboard" },
-                      ].map((visitor, i) => (
-                        <div key={i} className="flex items-center gap-3 p-2 bg-muted/20 rounded-lg">
-                          <span className="text-2xl">{visitor.country}</span>
-                          <div className="flex-1 min-w-0">
-                            <div className="text-xs text-foreground/80 truncate">{visitor.location}</div>
-                            <div className="text-xs text-muted-foreground truncate">{visitor.page}</div>
-                          </div>
-                          <div className="h-2 w-2 rounded-full bg-primary" />
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            }
+            icon={<TrendingUp className="h-12 w-12" />}
+            title="Analytics Mendalam"
+            description="Score distribution, completion trends, dan insights untuk improve cara ngajar."
+            keyPoints={[
+              "Score distribution chart (visual dengan Recharts)",
+              "Completion rate tracking",
+              "Average score trends",
+              "Per-question difficulty analysis",
+              "Time spent analytics",
+              "Historical comparison (multiple sessions)"
+            ]}
           />
         </div>
       </div>

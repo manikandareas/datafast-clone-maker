@@ -1,6 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Globe, ArrowRight } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 export const Hero = () => {
@@ -17,44 +15,45 @@ export const Hero = () => {
 
   return (
     <section className="py-20 px-4">
-      <div className="container mx-auto max-w-4xl text-center">
-        <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
-          Revenue-first analytics
+      <div className="container mx-auto max-w-5xl text-center">
+        <div className="inline-block mb-6 px-4 py-2 rounded-full bg-accent/10 border border-accent/20">
+          <span className="text-accent font-semibold text-sm">
+            🎉 Beta Gratis - Akses Penuh Tanpa Batas
+          </span>
+        </div>
+
+        <h1 className="text-5xl md:text-7xl font-bold text-foreground mb-6">
+          Buat soal dan kerjakan dalam hitungan menit?
         </h1>
         
-        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-          Discover which marketing channels bring customers so you can grow your business, fast.
+        <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-3xl mx-auto leading-relaxed">
+          Platform assessment berbasis AI yang mengubah PDF atau web content menjadi kuis interaktif. Real-time monitoring, auto-save, dan analytics mendalam untuk pendidik modern Indonesia.
         </p>
         
-        <div className="flex flex-col sm:flex-row gap-3 max-w-xl mx-auto mb-4">
-          <div className="relative flex-1">
-            <Globe className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input 
-              placeholder="website.com" 
-              className="pl-10 h-12 bg-background border-border"
-            />
-          </div>
-          <Button size="lg" className="h-12 px-8 gap-2">
-            Add my website
-            <ArrowRight className="h-4 w-4" />
+        <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-6">
+          <Button size="lg" className="h-14 px-8 text-lg font-semibold">
+            Mulai Gratis Sekarang 🚀
+          </Button>
+          <Button size="lg" variant="outline" className="h-14 px-8 text-lg">
+            Lihat Demo Langsung
           </Button>
         </div>
         
         <p className="text-sm text-muted-foreground mb-8">
-          14-day free trial. No card required
+          ✨ Gratis 50 Labs • ⚡ Tanpa Kartu Kredit • 🚀 Setup 2 Menit
         </p>
         
         <div className="flex items-center justify-center gap-3">
           <div className="flex -space-x-2">
             {userAvatars.map((avatar, i) => (
               <Avatar key={i} className="border-2 border-background h-10 w-10">
-                <AvatarImage src={avatar} alt={`User ${i + 1}`} />
-                <AvatarFallback>U{i + 1}</AvatarFallback>
+                <AvatarImage src={avatar} alt={`Pendidik ${i + 1}`} />
+                <AvatarFallback>P{i + 1}</AvatarFallback>
               </Avatar>
             ))}
           </div>
           <span className="text-sm text-muted-foreground">
-            Loved by <span className="font-semibold text-foreground">9,342</span> users
+            Dipercaya oleh <span className="font-semibold text-foreground">500+</span> pendidik Indonesia
           </span>
         </div>
       </div>
