@@ -1,12 +1,59 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Play } from "lucide-react";
+import founderTeamImage from "@/assets/founder-team.jpeg";
+
 export const FounderStory = () => {
   return <section className="py-12 md:py-20 lg:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="mb-8 md:mb-12 lg:mb-16">
-          {/* Story Text */}
-          <div className="space-y-4 md:space-y-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            {/* Left Side - Image with SVG Frame */}
+            <div className="relative w-full max-w-md mx-auto lg:mx-0">
+              {/* SVG Frame */}
+              <div className="relative">
+                <svg className="absolute inset-0 w-full h-full" viewBox="0 0 400 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  {/* Corner decorations */}
+                  <path d="M 10 10 L 60 10 L 60 15 L 15 15 L 15 60 L 10 60 Z" fill="hsl(var(--primary))" opacity="0.6"/>
+                  <path d="M 390 10 L 340 10 L 340 15 L 385 15 L 385 60 L 390 60 Z" fill="hsl(var(--primary))" opacity="0.6"/>
+                  <path d="M 10 490 L 60 490 L 60 485 L 15 485 L 15 440 L 10 440 Z" fill="hsl(var(--primary))" opacity="0.6"/>
+                  <path d="M 390 490 L 340 490 L 340 485 L 385 485 L 385 440 L 390 440 Z" fill="hsl(var(--primary))" opacity="0.6"/>
+                  
+                  {/* Border frame */}
+                  <rect x="8" y="8" width="384" height="484" stroke="hsl(var(--primary))" strokeWidth="2" fill="none" opacity="0.3"/>
+                  <rect x="15" y="15" width="370" height="470" stroke="hsl(var(--border))" strokeWidth="1" fill="none"/>
+                  
+                  {/* Decorative dots */}
+                  <circle cx="30" cy="30" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
+                  <circle cx="370" cy="30" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
+                  <circle cx="30" cy="470" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
+                  <circle cx="370" cy="470" r="3" fill="hsl(var(--primary))" opacity="0.5"/>
+                </svg>
+                
+                {/* Image */}
+                <div className="relative p-6 md:p-8">
+                  <div className="relative overflow-hidden rounded-lg shadow-xl">
+                    <img 
+                      src={founderTeamImage} 
+                      alt="Founder Team" 
+                      className="w-full h-auto object-cover"
+                    />
+                    {/* Gradient overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent pointer-events-none" />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Badge */}
+              <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 z-10">
+                <Badge className="bg-primary text-primary-foreground px-4 py-2 text-sm font-semibold shadow-lg">
+                  Tim DataFast 🚀
+                </Badge>
+              </div>
+            </div>
+
+            {/* Right Side - Story Text */}
+            <div className="space-y-4 md:space-y-6">
             <div className="flex items-center gap-2 text-foreground/80">
               <span className="text-base md:text-lg">👋</span>
               <span className="text-sm md:text-base lg:text-lg">
@@ -56,6 +103,7 @@ export const FounderStory = () => {
               </a>{" "}
               on Twitter. Let's ship! 🚢
             </p>
+            </div>
           </div>
         </div>
 
