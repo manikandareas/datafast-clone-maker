@@ -1,12 +1,13 @@
 export const SubjectShapes = () => {
-  // Static positions for all shapes - positioned in empty areas away from main content
+  // Static positions for all shapes - positioned in empty areas, visible in viewport
   const shapes = [
-    { index: 0, x: 2, y: 8, rotation: 15, scale: 0.5, opacity: 0.7 },        // Math - far top left corner
-    { index: 1, x: 95, y: 12, rotation: -20, scale: 0.6, opacity: 0.65 },    // Physics - far top right corner
-    { index: 2, x: 1, y: 88, rotation: 25, scale: 0.55, opacity: 0.6 },      // Biology - far bottom left corner
-    { index: 3, x: 96, y: 85, rotation: -15, scale: 0.65, opacity: 0.7 },    // Language - far bottom right corner
-    { index: 4, x: 98, y: 48, rotation: 10, scale: 0.5, opacity: 0.6 },      // Chemistry - far middle right edge
-    { index: 0, x: 3, y: 50, rotation: -25, scale: 0.45, opacity: 0.55 },    // Extra Math - far middle left edge
+    { index: 0, x: 8, y: 12, rotation: 15, scale: 0.55, opacity: 0.75, animation: "slide-in-left" },      // Math - top left
+    { index: 1, x: 92, y: 15, rotation: -20, scale: 0.6, opacity: 0.7, animation: "slide-in-right" },    // Physics - top right
+    { index: 2, x: 5, y: 82, rotation: 25, scale: 0.5, opacity: 0.65, animation: "slide-in-bottom-left" },  // Biology - bottom left
+    { index: 3, x: 93, y: 78, rotation: -15, scale: 0.6, opacity: 0.75, animation: "slide-in-bottom-right" }, // Language - bottom right
+    { index: 4, x: 94, y: 45, rotation: 10, scale: 0.52, opacity: 0.65, animation: "scale-fade-in" },     // Chemistry - middle right
+    { index: 5, x: 6, y: 48, rotation: -18, scale: 0.53, opacity: 0.7, animation: "rotate-fade-in" },     // Geography - middle left
+    { index: 0, x: 50, y: 8, rotation: 8, scale: 0.48, opacity: 0.6, animation: "slide-in-top" },        // Extra Math - top center
   ];
 
   return (
@@ -14,13 +15,14 @@ export const SubjectShapes = () => {
       {shapes.map((shape, i) => (
         <div
           key={i}
-          className="absolute pointer-events-none w-32 h-32 md:w-40 md:h-40 animate-float"
+          className={`absolute pointer-events-none w-28 h-28 md:w-36 md:h-36 animate-${shape.animation} animate-float`}
           style={{
             left: `${shape.x}%`,
             top: `${shape.y}%`,
             transform: `translate(-50%, -50%) rotate(${shape.rotation}deg) scale(${shape.scale})`,
             opacity: shape.opacity,
-            animationDelay: `${i * 0.3}s`,
+            animationDelay: `${i * 0.15}s`,
+            animationFillMode: 'both',
           }}
         >
           <ShapeSVG index={shape.index} />
@@ -172,6 +174,50 @@ const ShapeSVG = ({ index }: { index: number }) => {
         <circle cx="120" cy="160" r="18" fill="var(--accent)" stroke="oklch(0.2 0 0)" strokeWidth="5"/>
         {/* 3D shadows */}
         <circle cx="102" cy="62" r="20" fill="oklch(0.2 0 0)" opacity="0.2"/>
+      </g>
+    </svg>,
+    
+    // Geography - Globe/Earth
+    <svg key="geography" viewBox="0 0 200 200" fill="none" className="w-full h-full">
+      <g className="drop-shadow-2xl">
+        {/* Globe circle */}
+        <circle cx="100" cy="100" r="70" 
+          fill="var(--chart-3)" 
+          stroke="oklch(0.2 0 0)"
+          strokeWidth="6"
+        />
+        {/* Latitude lines */}
+        <ellipse cx="100" cy="100" rx="70" ry="20" 
+          fill="none" 
+          stroke="var(--primary)" 
+          strokeWidth="4"
+        />
+        <ellipse cx="100" cy="100" rx="70" ry="40" 
+          fill="none" 
+          stroke="var(--primary)" 
+          strokeWidth="4"
+        />
+        {/* Longitude lines */}
+        <ellipse cx="100" cy="100" rx="25" ry="70" 
+          fill="none" 
+          stroke="var(--primary)" 
+          strokeWidth="4"
+        />
+        <ellipse cx="100" cy="100" rx="45" ry="70" 
+          fill="none" 
+          stroke="var(--primary)" 
+          strokeWidth="4"
+        />
+        {/* Center meridian */}
+        <line x1="100" y1="30" x2="100" y2="170" 
+          stroke="var(--accent)" 
+          strokeWidth="5"
+        />
+        {/* 3D shadow */}
+        <circle cx="104" cy="104" r="70" 
+          fill="oklch(0.2 0 0)"
+          opacity="0.15"
+        />
       </g>
     </svg>,
   ];
