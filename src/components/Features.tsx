@@ -29,7 +29,7 @@ const FeatureCard = ({ title, description, previewContent }: FeatureCardProps) =
 
 export const Features = () => {
   return (
-    <section id="features" className="py-12 md:py-20 lg:py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
+    <section id="features" className="py-12 md:py-20 lg:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-7xl">
         <div className="text-center mb-8 md:mb-12 lg:mb-16">
           <div className="inline-block mb-3 md:mb-4">

@@ -14,9 +14,9 @@ export const Hero = () => {
   ];
   return (
     <section className="py-12 md:py-20 px-4 relative overflow-hidden min-h-[60vh]">
-      <div className="absolute inset-0 z-0">
+      {/* <div className="absolute inset-0 z-0">
         <SubjectShapes />
-      </div>
+      </div> */}
       <div className="container mx-auto max-w-5xl text-center relative z-20">
         <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-foreground mb-4 md:mb-6 px-2">
           Buat soal dan kerjakan dalam hitungan menit?

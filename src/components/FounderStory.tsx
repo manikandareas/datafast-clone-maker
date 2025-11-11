@@ -3,7 +3,7 @@ import founderTeamImage from "@/assets/founder-team.jpeg";
 
 export const FounderStory = () => {
   return (
-    <section className="py-16 md:py-24 px-4 bg-secondary/10">
+    <section className="py-16 md:py-24 px-4 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
           {/* Left Side - Image Card */}

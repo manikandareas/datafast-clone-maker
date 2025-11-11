@@ -3,7 +3,7 @@ import { Star } from "lucide-react";
 
 export const FeaturedTestimonial = () => {
   return (
-    <section className="py-8 md:py-12 px-4 bg-secondary/30">
+    <section className="py-8 md:py-12 px-4 bg-background">
       <div className="container mx-auto max-w-2xl">
         <div className="text-center space-y-3 md:space-y-4">
           {/* Stars */}
