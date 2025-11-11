@@ -1,64 +1,31 @@
-import { useEffect, useState } from "react";
-
 export const SubjectShapes = () => {
-  const [scrollProgress, setScrollProgress] = useState(0);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = window.scrollY / totalHeight;
-      setScrollProgress(progress);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Determine which shape to show based on scroll progress
-  const getShapeIndex = () => {
-    if (scrollProgress < 0.2) return 0; // Math
-    if (scrollProgress < 0.4) return 1; // Physics
-    if (scrollProgress < 0.6) return 2; // Biology
-    if (scrollProgress < 0.8) return 3; // Language
-    return 4; // Chemistry
-  };
-
-  // Calculate discrete position based on scroll thresholds
-  const getPositionIndex = () => {
-    if (scrollProgress < 0.15) return 0;
-    if (scrollProgress < 0.3) return 1;
-    if (scrollProgress < 0.45) return 2;
-    if (scrollProgress < 0.6) return 3;
-    if (scrollProgress < 0.75) return 4;
-    return 5;
-  };
-
-  const positionIndex = getPositionIndex();
-  const shapeIndex = getShapeIndex();
-
-  // Define discrete positions in empty areas
-  const positions = [
-    { x: 5, y: 10, scale: 1, rotation: 0 },        // Top left corner - Hero
-    { x: 85, y: 15, scale: 1.1, rotation: 72 },    // Top right corner
-    { x: 90, y: 45, scale: 1, rotation: 144 },     // Middle right edge
-    { x: 8, y: 60, scale: 1.2, rotation: 216 },    // Middle left edge
-    { x: 88, y: 75, scale: 1, rotation: 288 },     // Bottom right corner
-    { x: 10, y: 88, scale: 0.9, rotation: 360 },   // Bottom left corner
+  // Static positions for all shapes in Hero section
+  const shapes = [
+    { index: 0, x: 8, y: 15, rotation: 15, scale: 0.7, opacity: 0.8 },      // Math - top left
+    { index: 1, x: 88, y: 10, rotation: -20, scale: 0.8, opacity: 0.7 },    // Physics - top right  
+    { index: 2, x: 5, y: 75, rotation: 25, scale: 0.6, opacity: 0.6 },      // Biology - bottom left
+    { index: 3, x: 90, y: 70, rotation: -15, scale: 0.75, opacity: 0.75 },  // Language - bottom right
+    { index: 4, x: 85, y: 45, rotation: 10, scale: 0.65, opacity: 0.65 },   // Chemistry - middle right
   ];
 
-  const position = positions[positionIndex];
-
   return (
-    <div 
-      className="fixed pointer-events-none z-10 w-64 h-64 md:w-80 md:h-80 transition-all duration-500 ease-out"
-      style={{
-        left: `${position.x}%`,
-        top: `${position.y}%`,
-        transform: `translate(-50%, -50%) rotate(${position.rotation}deg) scale(${position.scale})`,
-      }}
-    >
-      <ShapeSVG index={shapeIndex} />
-    </div>
+    <>
+      {shapes.map((shape, i) => (
+        <div
+          key={i}
+          className="absolute pointer-events-none w-32 h-32 md:w-40 md:h-40 animate-float"
+          style={{
+            left: `${shape.x}%`,
+            top: `${shape.y}%`,
+            transform: `translate(-50%, -50%) rotate(${shape.rotation}deg) scale(${shape.scale})`,
+            opacity: shape.opacity,
+            animationDelay: `${i * 0.3}s`,
+          }}
+        >
+          <ShapeSVG index={shape.index} />
+        </div>
+      ))}
+    </>
   );
 };
 

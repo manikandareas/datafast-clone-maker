@@ -15,8 +15,10 @@ export const Hero = () => {
   ];
 
   return (
-    <section className="py-12 md:py-20 px-4 relative overflow-hidden">
-      <SubjectShapes />
+    <section className="py-12 md:py-20 px-4 relative overflow-hidden min-h-[80vh]">
+      <div className="absolute inset-0 z-0">
+        <SubjectShapes />
+      </div>
       <div className="container mx-auto max-w-5xl text-center relative z-20">
         <div className="inline-block mb-4 md:mb-6 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-accent/10 border border-accent/20">
           <span className="text-accent font-semibold text-xs md:text-sm">
