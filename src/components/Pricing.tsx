@@ -1,26 +1,21 @@
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Check, ArrowRight, Sparkles } from "lucide-react";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { Check, X, ArrowRight } from "lucide-react";
 
 export const Pricing = () => {
   const features = [
-    "Gratis 50 Labs - Buat hingga 50 lab lengkap dengan unlimited questions",
-    "Generate dari PDF & URL - Upload PDF atau paste link artikel—AI langsung bikin soal",
-    "Monitoring Real-time Siswa - Pantau siapa yang sedang mengerjakan, siapa yang kesulitan",
-    "Analytics Mendalam - Score distribution, completion rate, per-question difficulty",
-    "Auto-save Otomatis - Siswa gak akan kehilangan jawaban, tersimpan otomatis",
-    "Akses Multi-user - 30 website, 30 anggota tim (unlimited di beta)",
-    "Support Prioritas - Respon cepat dari tim via email & chat",
-    "Progress Tracking Detail - Lihat detail per siswa: current question, time spent, correctness"
+    { text: "50 Labs gratis dengan unlimited questions", available: true },
+    { text: "Generate soal dari PDF & URL", available: true },
+    { text: "Monitoring real-time siswa", available: true },
+    { text: "Analytics & score distribution", available: true },
+    { text: "Auto-save otomatis jawaban", available: true },
+    { text: "30 anggota tim (unlimited di beta)", available: true },
+    { text: "Data retention 5+ tahun", available: true },
+    { text: "Export data ke Excel/CSV", available: false },
   ];
 
-  const avatarSeeds = ["User1", "User2", "User3", "User4", "User5", "User6", "User7", "User8"];
-
   return (
-    <section className="py-24 px-4 bg-gradient-to-b from-background via-muted/20 to-background">
-      <div className="container mx-auto max-w-4xl">
+    <section id="pricing" className="py-24 px-4 bg-background">
+      <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <div className="inline-block mb-4">
             <span className="text-primary text-sm font-semibold tracking-wider uppercase">
@@ -31,97 +26,64 @@ export const Pricing = () => {
             Harga yang Sesuai dengan Kebutuhan Anda
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Coba semua fitur premium tanpa bayar selama periode beta. Akses penuh untuk pendidik modern.
+            Coba semua fitur premium tanpa bayar selama periode beta.
           </p>
         </div>
 
-        <Card className="bg-card/50 border-primary/50 border-2 relative overflow-hidden">
-          <div className="absolute top-0 right-0 px-6 py-2 bg-accent text-accent-foreground font-semibold text-sm">
-            🎉 PALING POPULER
-          </div>
-          
-          <CardHeader className="space-y-6 pt-12">
-            <div className="space-y-2">
-              <div className="text-sm font-medium text-muted-foreground uppercase tracking-wide">
-                Beta Gratis
-              </div>
+        <div className="max-w-md mx-auto">
+          <div className="bg-card/30 backdrop-blur-sm border border-border/50 rounded-2xl p-8 md:p-10">
+            {/* Plan Label */}
+            <div className="mb-6">
+              <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                BETA GRATIS
+              </span>
+            </div>
+
+            {/* Price */}
+            <div className="mb-8">
               <div className="flex items-baseline gap-2">
-                <span className="text-6xl font-bold text-foreground">Rp 0</span>
-                <span className="text-muted-foreground text-lg">/selama beta</span>
+                <span className="text-6xl md:text-7xl font-bold text-foreground">Rp 0</span>
+                <span className="text-xl text-muted-foreground">/selama beta</span>
               </div>
             </div>
-            <p className="text-muted-foreground leading-relaxed">
-              Coba semua fitur premium tanpa bayar! Akses penuh ke platform assessment terlengkap untuk pendidik modern. Periode Beta terbatas, ayo daftar sekarang.
-            </p>
-          </CardHeader>
 
-          <CardContent className="space-y-3 px-6">
-            {features.map((feature, index) => {
-              const [title, description] = feature.split(' - ');
-              return (
+            {/* Features List */}
+            <div className="space-y-4 mb-8">
+              {features.map((feature, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <div className="mt-0.5 flex-shrink-0">
-                    <Check className="h-5 w-5 text-green-500" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-foreground">{title}</span>
-                    {description && (
-                      <span className="text-sm text-muted-foreground"> - {description}</span>
+                    {feature.available ? (
+                      <Check className="h-5 w-5 text-green-500" />
+                    ) : (
+                      <X className="h-5 w-5 text-muted-foreground/40" />
                     )}
                   </div>
+                  <span className={`text-base ${feature.available ? 'text-foreground' : 'text-muted-foreground/60'}`}>
+                    {feature.text}
+                  </span>
                 </div>
-              );
-            })}
-            <div className="pt-4 border-t border-border/50">
-              <div className="text-sm text-muted-foreground">
-                <strong className="text-foreground">Data Retention:</strong> 5+ tahun
-              </div>
+              ))}
             </div>
-          </CardContent>
 
-          <CardFooter className="flex flex-col gap-3 px-6 pb-8">
-            <Button className="w-full h-14 text-lg font-semibold bg-accent hover:bg-accent/90">
-              Daftar Gratis Sekarang 🚀
+            {/* CTA Button */}
+            <Button 
+              className="w-full h-14 text-base font-semibold bg-[hsl(16,90%,60%)] hover:bg-[hsl(16,90%,55%)] text-white"
+            >
+              Daftar Gratis Sekarang
               <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <div className="text-center space-y-2 w-full">
-              <p className="text-xs text-muted-foreground">
-                ✨ Setup hanya 2 menit • 🔒 Data aman & terenkripsi
-              </p>
-              <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Sparkles className="h-4 w-4 text-accent" />
-                <span>14-day free trial (setelah beta)</span>
-                <span>•</span>
-                <span>Tanpa kartu kredit</span>
-                <span>•</span>
-                <span>Cancel kapan saja</span>
-              </div>
-            </div>
-          </CardFooter>
-        </Card>
 
-        <div className="mt-8 text-center">
-          <div className="inline-block px-6 py-3 bg-muted/50 rounded-lg border border-border/50">
-            <p className="text-sm text-muted-foreground">
-              💡 <strong className="text-foreground">Harga post-beta</strong> akan diumumkan sebelum periode beta berakhir. Early adopters mendapat harga spesial!
+            {/* Small Print */}
+            <p className="text-center text-sm text-muted-foreground mt-4">
+              Rp 0 hari ini. Tanpa kartu kredit.
             </p>
           </div>
         </div>
 
-        <div className="flex flex-col items-center gap-4 mt-12">
-          <div className="flex -space-x-2">
-            {avatarSeeds.map((seed, index) => (
-              <Avatar key={index} className="h-10 w-10 border-2 border-background">
-                <AvatarImage
-                  src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${seed}`}
-                  alt={`Pendidik ${index + 1}`}
-                />
-                <AvatarFallback>P{index + 1}</AvatarFallback>
-              </Avatar>
-            ))}
-          </div>
-          <p className="text-sm text-muted-foreground">
-            Bergabung dengan <span className="font-semibold text-foreground">500+</span> pendidik Indonesia
+        {/* Bottom Note */}
+        <div className="mt-12 text-center">
+          <p className="text-sm text-muted-foreground max-w-xl mx-auto">
+            💡 <strong className="text-foreground">Harga post-beta</strong> akan diumumkan sebelum periode beta berakhir. Early adopters mendapat harga spesial!
           </p>
         </div>
       </div>
