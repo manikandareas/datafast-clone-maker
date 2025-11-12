@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroImage from "@/assets/signin-hero.png";
 
 export default function SignIn() {
   return (
@@ -99,91 +99,17 @@ export default function SignIn() {
           </Card>
         </div>
 
-        {/* Right Side - Analytics Preview (Hidden on Mobile) */}
+        {/* Right Side - Hero Image (Hidden on Mobile) */}
         <div className="hidden lg:flex items-center justify-center">
-          <Card className="w-full bg-muted/30 backdrop-blur-sm border-border/50 p-6">
-            <div className="space-y-4">
-              {/* Header */}
-              <div className="flex items-center justify-between pb-4 border-b border-border/50">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <BarChart3 className="w-4 h-4" />
-                  <span>DETAILS</span>
-                </div>
-              </div>
-
-              {/* Table Header */}
-              <div className="flex items-center justify-between text-sm font-medium text-foreground pb-2">
-                <span>Country</span>
-                <span>Visitors</span>
-              </div>
-
-              {/* Country List */}
-              <div className="space-y-2">
-                {[
-                  { flag: "🇺🇸", country: "United States", visitors: 581, active: true },
-                  { flag: "🇮🇳", country: "India", visitors: 177 },
-                  { flag: "🇨🇦", country: "Canada", visitors: 125 },
-                  { flag: "🇬🇧", country: "United Kingdom", visitors: 123 },
-                  { flag: "🇩🇪", country: "Germany", visitors: 113 },
-                  { flag: "🇧🇷", country: "Brazil", visitors: 107 },
-                  { flag: "🇫🇷", country: "France", visitors: 100 },
-                  { flag: "🇵🇱", country: "Poland", visitors: 90 },
-                  { flag: "🇪🇸", country: "Spain", visitors: 55 },
-                  { flag: "🇯🇵", country: "Japan", visitors: 55 },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className={`flex items-center justify-between p-2 rounded-md transition-colors ${
-                      item.active
-                        ? "bg-muted/50"
-                        : "hover:bg-muted/30"
-                    }`}
-                  >
-                    <div className="flex items-center gap-2">
-                      <span className="text-lg">{item.flag}</span>
-                      <span className="text-sm text-foreground">{item.country}</span>
-                    </div>
-                    <span className="text-sm text-foreground font-medium">{item.visitors}</span>
-                  </div>
-                ))}
-              </div>
-
-              {/* Tooltip Simulation */}
-              <Card className="absolute top-32 right-12 bg-popover border-border p-4 space-y-2 shadow-lg">
-                <div className="text-sm font-medium text-popover-foreground">United States</div>
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-primary rounded-sm"></div>
-                    <span className="text-xs text-muted-foreground">Visitors</span>
-                    <span className="text-xs font-medium text-foreground ml-auto">581</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <div className="w-3 h-3 bg-accent rounded-sm"></div>
-                    <span className="text-xs text-muted-foreground">Revenue</span>
-                    <span className="text-xs font-medium text-foreground ml-auto">$1.4k</span>
-                  </div>
-                </div>
-                <div className="pt-2 border-t border-border/50 space-y-1">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Revenue/visitor</span>
-                    <span className="text-foreground font-medium">$2.35</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-muted-foreground">Conversion rate</span>
-                    <span className="text-foreground font-medium">1.20%</span>
-                  </div>
-                </div>
-              </Card>
-
-              {/* Bottom Details */}
-              <div className="flex items-center justify-center pt-4 border-t border-border/50">
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <BarChart3 className="w-4 h-4" />
-                  <span>DETAILS</span>
-                </div>
-              </div>
-            </div>
-          </Card>
+          <div className="relative w-full h-full min-h-[600px] rounded-2xl overflow-hidden">
+            <img 
+              src={heroImage} 
+              alt="DataFast Analytics Dashboard" 
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Optional gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent"></div>
+          </div>
         </div>
       </div>
     </div>
