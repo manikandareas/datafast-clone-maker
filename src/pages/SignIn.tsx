@@ -2,8 +2,8 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
-import { BarChart3 } from "lucide-react";
 import { Link } from "react-router-dom";
+import heroImage from "@/assets/signin-hero.png";
 
 export default function SignIn() {
   return (
