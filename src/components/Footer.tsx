@@ -75,12 +75,12 @@ export const Footer = () => {
             {
               name: "Terms of Service",
               Icon: Scale,
-              href: "#",
+              href: "/terms",
             },
             {
               name: "Privacy Policy",
               Icon: Shield,
-              href: "#",
+              href: "/privacy",
             },
           ],
         },
