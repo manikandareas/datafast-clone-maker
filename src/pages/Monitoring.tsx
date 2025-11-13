@@ -475,27 +475,6 @@ export default function Monitoring() {
             </Button>
           </div> */}
         </div>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <div className="text-center p-3 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg border border-primary/20">
-                    <p className="text-xs text-muted-foreground mb-1 font-medium">Skor</p>
-                    <p className="text-2xl font-bold text-primary">{participant.score}%</p>
-                  </div>
-                  <div className="text-center p-3 bg-gradient-to-br from-accent/5 to-accent/10 rounded-lg border border-accent/20">
-                    <p className="text-xs text-muted-foreground mb-1 font-medium">Benar</p>
-                    <p className="text-2xl font-bold text-accent">
-                      {participant.correct}<span className="text-sm text-muted-foreground">/{participant.totalQuestions}</span>
-                    </p>
-                  </div>
-                  <div className="text-center p-3 bg-gradient-to-br from-muted/30 to-muted/50 rounded-lg border border-border">
-                    <p className="text-xs text-muted-foreground mb-1 font-medium">Aktif</p>
-                    <p className="text-lg font-bold text-foreground">{participant.lastActive}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
