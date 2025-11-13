@@ -222,23 +222,30 @@ export default function Monitoring() {
         </div>
 
         {/* Monitoring Section */}
-        <div className="bg-card border border-border rounded-lg p-6">
-          <h3 className="text-lg font-semibold mb-2">Monitoring Langsung</h3>
-          <p className="text-sm text-muted-foreground mb-6">
-            Pantau progress peserta secara real-time
-          </p>
+        <div className="bg-gradient-to-br from-card via-card to-primary/5 border border-border rounded-xl p-6 md:p-8 shadow-lg animate-fade-in">
+          <div className="flex items-center gap-3 mb-3">
+            <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center">
+              <span className="text-xl">👥</span>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold">Monitoring Langsung</h3>
+              <p className="text-sm text-muted-foreground">
+                Pantau progress peserta secara real-time
+              </p>
+            </div>
+          </div>
 
           {/* Search and Filters */}
-          <div className="flex flex-col md:flex-row gap-3 mb-6">
-            <div className="relative flex-1">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <div className="flex flex-col md:flex-row gap-3 mb-6 mt-6">
+            <div className="relative flex-1 group">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground group-focus-within:text-primary transition-colors" />
               <Input
                 placeholder="Cari peserta..."
-                className="pl-10 bg-background"
+                className="pl-10 bg-background border-border hover:border-primary/50 focus:border-primary transition-all"
               />
             </div>
             <Select defaultValue="score">
-              <SelectTrigger className="w-full md:w-48 bg-background">
+              <SelectTrigger className="w-full md:w-48 bg-background hover:border-primary/50 transition-colors">
                 <SelectValue placeholder="Urutkan" />
               </SelectTrigger>
               <SelectContent>
@@ -248,7 +255,7 @@ export default function Monitoring() {
               </SelectContent>
             </Select>
             <Select defaultValue="all">
-              <SelectTrigger className="w-full md:w-48 bg-background">
+              <SelectTrigger className="w-full md:w-48 bg-background hover:border-primary/50 transition-colors">
                 <SelectValue placeholder="Status" />
               </SelectTrigger>
               <SelectContent>
@@ -261,54 +268,68 @@ export default function Monitoring() {
 
           {/* Participant Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {participants.map((participant) => (
+            {participants.map((participant, index) => (
               <div
                 key={participant.id}
-                className="bg-background border border-border rounded-lg p-5"
+                className="group bg-background border border-border rounded-xl p-5 hover:shadow-xl hover:border-primary/30 transition-all duration-300 hover:-translate-y-1 animate-fade-in cursor-pointer"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className="flex items-center gap-3">
-                    <Avatar className="h-10 w-10">
-                      <AvatarFallback className="bg-muted text-muted-foreground font-medium">
-                        VA
-                      </AvatarFallback>
-                    </Avatar>
+                    <div className="relative">
+                      <Avatar className="h-12 w-12 ring-2 ring-border group-hover:ring-primary/30 transition-all">
+                        <AvatarFallback className="bg-gradient-to-br from-primary/20 to-accent/20 text-foreground font-semibold">
+                          VA
+                        </AvatarFallback>
+                      </Avatar>
+                      <div className="absolute -bottom-1 -right-1 h-4 w-4 rounded-full bg-emerald-500 border-2 border-background" />
+                    </div>
                     <div>
-                      <p className="font-medium">{participant.name}</p>
-                      <p className="text-xs text-muted-foreground">
+                      <p className="font-semibold text-foreground group-hover:text-primary transition-colors">
+                        {participant.name}
+                      </p>
+                      <p className="text-xs text-muted-foreground flex items-center gap-1">
+                        <span className="inline-block h-1.5 w-1.5 rounded-full bg-primary" />
                         Percobaan ke-{participant.attempt}
                       </p>
                     </div>
                   </div>
-                  <Badge className="bg-emerald-500 hover:bg-emerald-500 text-white">
-                    {participant.status}
+                  <Badge className="bg-emerald-500 hover:bg-emerald-500 text-white shadow-sm">
+                    ✓ {participant.status}
                   </Badge>
                 </div>
 
-                <div className="mb-3">
+                <div className="mb-4 p-3 bg-muted/30 rounded-lg border border-border/50">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm text-muted-foreground">Pertanyaan</span>
-                    <span className="text-sm font-medium">
+                    <span className="text-sm font-medium text-foreground">Progress Pertanyaan</span>
+                    <span className="text-sm font-bold text-primary">
                       {participant.questions}/{participant.total}
                     </span>
                   </div>
-                  <Progress value={participant.progress} className="h-2" />
+                  <Progress 
+                    value={participant.progress} 
+                    className="h-2.5 bg-muted" 
+                  />
+                  <div className="flex justify-between mt-1">
+                    <span className="text-xs text-muted-foreground">0%</span>
+                    <span className="text-xs text-muted-foreground">100%</span>
+                  </div>
                 </div>
 
-                <div className="grid grid-cols-3 gap-4 pt-3 border-t border-border">
-                  <div>
-                    <p className="text-xs text-muted-foreground mb-1">Skor</p>
-                    <p className="text-lg font-bold">{participant.score}%</p>
+                <div className="grid grid-cols-3 gap-3">
+                  <div className="text-center p-3 bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg border border-primary/20">
+                    <p className="text-xs text-muted-foreground mb-1 font-medium">Skor</p>
+                    <p className="text-2xl font-bold text-primary">{participant.score}%</p>
                   </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground mb-1">Benar</p>
-                    <p className="text-lg font-bold">
-                      {participant.correct}/{participant.totalQuestions}
+                  <div className="text-center p-3 bg-gradient-to-br from-accent/5 to-accent/10 rounded-lg border border-accent/20">
+                    <p className="text-xs text-muted-foreground mb-1 font-medium">Benar</p>
+                    <p className="text-2xl font-bold text-accent">
+                      {participant.correct}<span className="text-sm text-muted-foreground">/{participant.totalQuestions}</span>
                     </p>
                   </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground mb-1">Aktif</p>
-                    <p className="text-lg font-bold">{participant.lastActive}</p>
+                  <div className="text-center p-3 bg-gradient-to-br from-muted/30 to-muted/50 rounded-lg border border-border">
+                    <p className="text-xs text-muted-foreground mb-1 font-medium">Aktif</p>
+                    <p className="text-lg font-bold text-foreground">{participant.lastActive}</p>
                   </div>
                 </div>
               </div>
